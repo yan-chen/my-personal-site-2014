@@ -1,0 +1,100 @@
+/*** top navbar ***/
+.navbar.yy-navbar {
+    background: #fff;
+    padding-top: 15px;
+    box-shadow: -10px 0 10px #ccc;
+    color: #000;
+    margin-bottom:30px;
+}
+
+.navbar.yy-navbar .navbar-header .navbar-brand {
+    font-size: 20px;
+}
+
+.navbar.yy-navbar .nav-pills > li {
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: fantasy;
+}
+
+.navbar.yy-navbar .nav-pills > li > a {
+    color: #000;
+}
+
+.navbar.yy-navbar .nav-pills > li > a:hover {
+    color: #428bca;
+    background-color: transparent;
+}
+
+.navbar.yy-navbar .nav-pills > li.active > a,
+.navbar.yy-navbar .nav-pills > li.active > a:hover{
+    /*font-weight: bold;*/
+    color: #428bca;
+    background-color: transparent;
+}
+
+.navbar .navbar-header .icon-bar {
+    background-color: #808080;
+}
+
+@media (max-width: 768px) {
+    #yy-nav .navbar {
+        margin-bottom: 10px;
+    }
+}
+
+/*** aside navbar ***/
+.aside.yy-navbar-aside {
+    min-width: 130px !important;
+    width: 130px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.aside.yy-navbar-aside .aside-body {
+    padding: 20px 5px;
+}
+
+.aside.yy-navbar-aside .nav > li > a {
+    padding: 6px 10px;
+    color:#000;
+    cursor: pointer;
+}
+
+.animate-if.ng-enter {
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -ms-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
+}
+
+.animate-if.ng-leave {
+    -webkit-transition: 0s linear all;
+    -moz-transition: 0s linear all;
+    -ms-transition: 0s linear all;
+    -o-transition: 0s linear all;
+    transition: 0s linear all;
+}
+
+.animate-if.ng-enter {
+    max-width: 0;
+    opacity: 1;
+}
+
+.animate-if.ng-enter.ng-enter-active {
+    max-width: 100%;
+    opacity: 1;
+}
+
+.animate-if.ng-leave {
+    max-width: 100%;
+    opacity: 1;
+}
+
+.animate-if.ng-leave.ng-leave-active {
+    max-width: 0;
+    opacity: 1;
+}

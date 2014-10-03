@@ -1,0 +1,105 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>yyPage</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="non_npm_library/jquery.qtip2.custom/jquery.qtip.css"/>
+    <!-- endbuild -->
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/yy-page.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/about-me.css">
+    <link rel="stylesheet" href="styles/portfolio.css">
+    <link rel="stylesheet" href="styles/yy-page-media.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- endbuild -->
+</head>
+
+<body data-ng-app="myPageApp" data-ng-controller="MainCtrl" data-ng-cloak>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- navbar -->
+<div id="yy-nav" ng-class="{'aside-open':isAsideVisible}" data-ng-include="'views/nav.html'"></div>
+<div ng-if="isAsideVisible" class="animate-if" data-ng-include="'views/nav-aside.tpl.html'"></div>
+
+<!-- END navbar -->
+<div class="alert alert-info alert-dismissible yy-page-alert" role="alert">
+    <button type="button" class="close" data-dismiss="alert">
+        <i class="glyphicon glyphicon-remove icon-1x yy-flash"></i>
+        <span class="sr-only">Close</span></button>
+    This site is still under construction, may often be updated.
+</div>
+
+<div ui-view id="yy-ui-view" ng-class="{'aside-open':isAsideVisible}"></div>
+
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/get-style-property/get-style-property.js"></script>
+<script src="bower_components/get-size/get-size.js"></script>
+<script src="bower_components/eventie/eventie.js"></script>
+<script src="bower_components/doc-ready/doc-ready.js"></script>
+<script src="bower_components/eventEmitter/EventEmitter.js"></script>
+<script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+<script src="bower_components/matches-selector/matches-selector.js"></script>
+<script src="bower_components/outlayer/item.js"></script>
+<script src="bower_components/outlayer/outlayer.js"></script>
+<script src="bower_components/masonry/masonry.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!-- endbower -->
+<script src="non_npm_library/jquery.qtip2.custom/jquery.qtip.js"></script>
+<script src="non_npm_library/jquery.qtip2.custom/imagesloaded.pkg.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/yyPage.js"></script>
+<script src="scripts/filters.js"></script>
+<script src="scripts/prototype.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about-me.js"></script>
+<script src="scripts/controllers/personal.js"></script>
+<script src="scripts/directives/masonryDir.js"></script>
+<script src="scripts/directives/yyQtipDir.js"></script>
+<script src="scripts/controllers/nav.js"></script>
+<script src="scripts/controllers/portfolio.js"></script>
+<script src="scripts/controllers/portfolio-todo.js"></script>
+<script src="scripts/controllers/portfolio-d3.js"></script>
+<!-- endbuild -->
+</body>
+</html>

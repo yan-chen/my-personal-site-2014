@@ -1,0 +1,162 @@
+#portfolio-container {
+  width: 90%;
+  /*max-width: 800px;*/
+  margin: 0 auto;
+}
+
+#portfolio-container .portfolio-widget-container {
+  padding: 20px;
+}
+
+#portfolio-container .portfolio-panel {
+  min-width: 262px;
+}
+
+#portfolio-container .portfolio-widget {
+  height: 205px;
+  min-width: 260px;
+  overflow: hidden;
+  background-size: 100% auto;
+  text-align: center;
+}
+
+#portfolio-container .portfolio-widget .portfolio-widget-overlay {
+  background-color: rgba(0, 0, 0, 0.10);
+  padding-top: 60px;
+  width: 100%;
+  height: 100%;
+}
+
+#portfolio-container .portfolio-widget .portfolio-widget-overlay:hover {
+  background-color: rgba(0, 0, 0, .6);
+}
+
+#portfolio-container .portfolio-widget .btn.portfolio-widget-overlay-btn {
+  background-color: transparent;
+  border: none;
+  color: transparent;
+  transition: all linear 0.25s;
+  -webkit-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+}
+
+#portfolio-container .portfolio-widget .portfolio-widget-overlay:hover .btn.portfolio-widget-overlay-btn {
+  /*background-color: #ffffff;*/
+  border: solid #fff 3px;
+  color: #fff;
+  padding: 15px 40px;
+  font-size: 20px;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+#portfolio-container .portfolio-widget .btn.portfolio-widget-overlay-btn {
+  padding: 15px 25px;
+}
+
+/**** for portfolio page modal****/
+
+#portfolio-filePreviewModal .file-preview-modal {
+  width: 80%;
+  max-width: 800px;
+}
+
+#portfolio-filePreviewModal .file-preview-modal .modal-body {
+  height: 70%;
+  background-color: rgb(206, 206, 206);
+}
+
+#portfolio-filePreviewModal .file-preview-modal .modal-body iframe {
+  border: none;
+}
+
+/**** for portfolio demo modal ****/
+
+#portfolio-demoPreviewModal .demo-preview-modal .modal-body {
+  height: 500px;
+}
+
+/**** portfolio project modal ****/
+
+#portfolio-projectPreviewModal .project-preview-modal .modal-body {
+  width: 600px;
+  height: 500px;
+}
+
+#portfolio-projectPreviewModal .project-preview-modal .modal-body .iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+iframe.yy-video-dir-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/**** portfolio.todo.tpl.html ****/
+
+#portfolio-todo-panel .todo-tabset li.todo-tab:first-child {
+  margin-left: 10px;
+}
+
+#portfolio-todo-panel .todo-list {
+  list-style: none;
+  padding: 0;
+  height: 330px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#portfolio-todo-panel .todo-list.archived-list {
+  height: 400px;
+}
+
+#portfolio-todo-panel .todo-list li {
+  line-height: 40px;
+  font-size: 20px;
+}
+
+#portfolio-todo-panel .todo-list .todo-checkbox {
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+#portfolio-todo-panel .todo-list .strike-text {
+  color: #d4d4d4;
+}
+
+#portfolio-todo-panel .todo-tab-content {
+  padding: 20px;
+}
+
+@media (max-width: 340px) {
+  #portfolio-container .portfolio-widget-container {
+    padding: 10px;
+  }
+
+  #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
+    padding: 10px 0;
+  }
+
+  /**** for portfolio demo modal ****/
+
+  #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
+    height: 300px;
+  }
+
+  #portfolio-todo-panel .todo-list {
+    height: 130px;
+  }
+
+  #portfolio-todo-panel .todo-list li {
+    line-height: 22px;
+    font-size: 14px;
+  }
+}
