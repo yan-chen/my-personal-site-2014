@@ -9,4 +9,9 @@ angular.module('myPageApp')
         return function (arr, start, end) {
             return (arr || []).slice(start, end);
         };
-    });
+    })
+    .filter('compareFilter', [function () {
+        return function (input, compareValue, trueValue, falseValue) {
+            return (input === compareValue) ? trueValue : falseValue;
+        };
+    }]);
