@@ -16,4 +16,6 @@ angular.module('myPageApp')
         $scope.toggleAsideNav = function () {
             $scope.isAsideVisible = !$scope.isAsideVisible;
         };
+
+        $scope.isTouchDevice = !!(“ontouchstart” in window);
     }]);

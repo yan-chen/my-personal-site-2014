@@ -16,9 +16,9 @@
     -moz-box-shadow: 0 0 15px #DDD;
     -webkit-box-shadow: 0 0 15px #CCC;
     box-shadow: 0 0 15px #CCC;
-    margin-left:auto;
-    margin-right:auto;
-    width:99%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
 }
 
 #about-me-container .jumbotron .lead-profile-thumb {
@@ -33,7 +33,7 @@
 
 #about-me-container .jumbotron .lead-with-text {
     min-width: 260px;
-    width:45%;
+    width: 45%;
     min-height: 180px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -129,6 +129,19 @@
     border: 1px solid #ddd;
 }
 
-#about-me-container .yy-info-container-title{
-    margin-left:20px;
+#about-me-container .yy-info-container-title {
+    margin-left: 20px;
+}
+#about-me-container .yy-info-sub-title {
+    text-align: left;
+}
+@media only screen and (min-width: 768px) {
+    #about-me-container .yy-info-sub-title {
+        text-align: right;
+    }
+}
+
+#about-me-container .admin-login-btn {
+    margin-left: 20px;
+    cursor: pointer;
 }
