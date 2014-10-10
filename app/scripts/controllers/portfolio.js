@@ -19,13 +19,14 @@ angular.module('myPageApp')
         };
         $scope.projects = [
             {
-                'fileName': 'Widget Bank Design (USANA)',
+                'fileName': 'Widget Bank Design',
                 'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
                 'fileThumbPath': 'videos/usana_widgetbank_thumb.png'
             }
         ];
         $scope.setCurrentProject = function (file) {
             $scope.currentProject = file;
+            console.log($scope.currentProject)
         };
 
         $scope.webComponentDemos = [
@@ -35,12 +36,12 @@ angular.module('myPageApp')
                 'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
             },
             {
-                'demoName': 'D3 Chart',
+                'demoName': 'D3 Chart (coming ...)',
                 'demoPath': '',
                 'demoThumbPath': ''
             },
             {
-                'demoName': 'Others',
+                'demoName': 'Others (coming ...)',
                 'demoPath': '',
                 'demoThumbPath': ''
             }

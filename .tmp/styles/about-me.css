@@ -117,3 +117,18 @@
 #about-me-container .yy-info-container-title {
   margin-left: 20px;
 }
+
+#about-me-container .yy-info-sub-title {
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+  #about-me-container .yy-info-sub-title {
+    text-align: right;
+  }
+}
+
+#about-me-container .admin-login-btn {
+  margin-left: 20px;
+  cursor: pointer;
+}

@@ -79,7 +79,7 @@ hr.title-separator-bold {
   color: #818181;
 }
 
-.yy-text-right.yy-md {
+.yy-text-right {
   text-align: right;
 }
 
@@ -167,4 +167,9 @@ hr.title-separator-bold {
 
 .yy-page-alert {
   margin-top: -20px;
+}
+
+.yy-page-alert.aside-open {
+  position: relative;
+  right: 130px;
 }

@@ -13,13 +13,13 @@
                 <div class="panel-body no-padding">
                     <div class="portfolio-widget "
                          ng-style="{'background-image':'url({{wireframe.fileThumbPath}})'}">
-                        <div class="portfolio-widget-overlay">
+                        <div ng-if="!isTouchDevice" class="portfolio-widget-overlay">
                             <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
                                  data-target="#portfolio-filePreviewModal" ng-click="setCurrentFile(wireframe)">
                                 View
                             </div>
                         </div>
-                        <div class="portfolio-widget-overlay">
+                        <div ng-if="isTouchDevice" class="portfolio-widget-overlay-touch-device">
                             <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
                                  data-target="#portfolio-filePreviewModal" ng-click="setCurrentFile(wireframe)">
                                 View
@@ -73,11 +73,18 @@
                 <div class="panel-body no-padding">
                     <div class="portfolio-widget "
                          ng-style="{'background-image':'url({{project.fileThumbPath}})'}">
-                        <div class="portfolio-widget-overlay">
+                        <div ng-if="!isTouchDevice" class="portfolio-widget-overlay">
                             <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
                                  data-target="#portfolio-projectPreviewModal"
                                  ng-click="setCurrentProject(project)">
-                                <span class="fa fa-play fa-3x"></span>
+                                <span class="glyphicon glyphicon-play icon icon-2x"></span>
+                            </div>
+                        </div>
+                        <div ng-if="isTouchDevice" class="portfolio-widget-overlay-touch-device">
+                            <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
+                                 data-target="#portfolio-projectPreviewModal"
+                                 ng-click="setCurrentProject(project)">
+                                <span class="glyphicon glyphicon-play icon icon-3x"></span>
                             </div>
                         </div>
                     </div>
@@ -104,7 +111,7 @@
     <!---------------------------------- END Project Section -------------------------------->
 
     <!---------------------------------- Demo Section -------------------------------->
-    <h4 class="yy-text-default">Web Component Example (Under Construction ...)</h4>
+    <h4 class="yy-text-default">Web Component Example</h4>
     <hr class="title-separator-bold"/>
     <div class="row portfolio-widget-container-row">
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-9 portfolio-widget-container"
@@ -114,7 +121,15 @@
                     <div class="panel-title">{{demo.demoName}}</div>
                 </div>
                 <div class="panel-body no-padding">
-                    <div class="portfolio-widget" ng-style="{'background-image':'url({{demo.demoThumbPath}})'}">
+                    <div ng-if="!isTouchDevice" class="portfolio-widget" ng-style="{'background-image':'url({{demo.demoThumbPath}})'}">
+                        <div class="portfolio-widget-overlay">
+                            <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
+                                 data-target="#portfolio-demoPreviewModal" ng-click="setCurrentDemo(demo)">
+                                View
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="isTouchDevice" class="portfolio-widget-overlay-touch-device" ng-style="{'background-image':'url({{demo.demoThumbPath}})'}">
                         <div class="portfolio-widget-overlay">
                             <div class="btn btn-default portfolio-widget-overlay-btn" data-toggle="modal"
                                  data-target="#portfolio-demoPreviewModal" ng-click="setCurrentDemo(demo)">

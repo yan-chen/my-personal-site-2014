@@ -2,7 +2,16 @@
 
 angular.module('myPageApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate'])
 
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider','$sceDelegateProvider', function ($stateProvider, $urlRouterProvider,$sceDelegateProvider) {
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'http://www.youtube.com/**'
+        ]);
+
+
         $urlRouterProvider.when('', 'about-me');
         $urlRouterProvider.otherwise('/404');
 
@@ -33,4 +42,7 @@ angular.module('myPageApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ui.route
         $rootScope.$on('$stateChangeSuccess', function () {
             $rootScope.currentTab = $location.path().split('/')[1];
         });
+
+        $rootScope.isTouchDevice = !!('ontouchstart' in window);
+
     }]);

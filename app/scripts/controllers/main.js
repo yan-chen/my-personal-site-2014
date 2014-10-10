@@ -17,5 +17,15 @@ angular.module('myPageApp')
             $scope.isAsideVisible = !$scope.isAsideVisible;
         };
 
-        $scope.isTouchDevice = !!(“ontouchstart” in window);
+        $scope.isViewPortSizeSm = function () {
+            if (window.innerWidth < 767) {
+                return true;
+            }
+        };
+
+        $(window).resize(function () {
+            if (!$scope.isViewPortSizeSm()) {
+                $scope.$apply($scope.isAsideVisible = false);
+            }
+        });
     }]);

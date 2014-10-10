@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myPageApp')
-    .controller('PersonalCtrl', ['$scope', function ($scope) {
+    .controller('PersonalCtrl', ['$scope','$modal', function ($scope,$modal) {
         $scope.imageList = [
             {
                 'title': '14',
@@ -112,7 +112,7 @@ angular.module('myPageApp')
         };
 
         var imgUploadModalCtrl = function ($scope, $modalInstance, imageList) {
-            $scope.imageList
+//            $scope.imageList = imageList;??
             $scope.save = function () {
 
                 $modalInstance.close();
