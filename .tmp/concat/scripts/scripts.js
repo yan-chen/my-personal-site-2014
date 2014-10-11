@@ -10,7 +10,12 @@ angular.module('myPageApp', [
 ]).config([
   '$stateProvider',
   '$urlRouterProvider',
-  function ($stateProvider, $urlRouterProvider) {
+  '$sceDelegateProvider',
+  function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self',
+      'http://www.youtube.com/**'
+    ]);
     $urlRouterProvider.when('', 'about-me');
     $urlRouterProvider.otherwise('/404');
     $stateProvider.state('about-me', {
@@ -37,6 +42,7 @@ angular.module('myPageApp', [
     $rootScope.$on('$stateChangeSuccess', function () {
       $rootScope.currentTab = $location.path().split('/')[1];
     });
+    $rootScope.isTouchDevice = !!('ontouchstart' in window);
   }
 ]);
 /**
@@ -82,7 +88,17 @@ angular.module('myPageApp').controller('MainCtrl', [
     $scope.isAsideVisible = false;
     $scope.toggleAsideNav = function () {
       $scope.isAsideVisible = !$scope.isAsideVisible;
-    };  //        $scope.isTouchDevice = !!(“ontouchstart” in window);
+    };
+    $scope.isViewPortSizeSm = function () {
+      if (window.innerWidth < 767) {
+        return true;
+      }
+    };
+    $(window).resize(function () {
+      if (!$scope.isViewPortSizeSm()) {
+        $scope.$apply($scope.isAsideVisible = false);
+      }
+    });
   }
 ]);
 'use strict';
@@ -603,18 +619,24 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
         'fileName': 'yyPage Wireframe Version #2',
         'filePath': 'data/yy_page_v2.pdf',
         'fileThumbPath': 'data/yy_page_v2_thumb.png'
+      },
+      {
+        'fileName': 'Community Blog Mockup',
+        'filePath': 'data/yy_community_blog.pdf',
+        'fileThumbPath': 'data/yy_community_blog_thumb.png'
       }
     ];
     $scope.setCurrentFile = function (file) {
       $scope.currentFile = file;
     };
     $scope.projects = [{
-        'fileName': 'Widget Bank Design (USANA)',
+        'fileName': 'Widget Bank Design',
         'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
         'fileThumbPath': 'videos/usana_widgetbank_thumb.png'
       }];
     $scope.setCurrentProject = function (file) {
       $scope.currentProject = file;
+      console.log($scope.currentProject);
     };
     $scope.webComponentDemos = [
       {
@@ -623,12 +645,12 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
         'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
       },
       {
-        'demoName': 'D3 Chart',
+        'demoName': 'D3 Chart (coming ...)',
         'demoPath': '',
         'demoThumbPath': ''
       },
       {
-        'demoName': 'Others',
+        'demoName': 'Others (coming ...)',
         'demoPath': '',
         'demoThumbPath': ''
       }
@@ -824,3 +846,18 @@ angular.module('myPageApp').controller('loginCtrl', [
     };
   }
 ]);
+'use strict';
+angular.module('myPageApp').directive('yyVideoDir', [
+  '$sce',
+  function ($sce) {
+    return {
+      restrict: 'EA',
+      scope: { 'videoSrc': '=' },
+      replace: true,
+      template: '<iframe frameborder="0" width="560" height="315" allowfullscreen ng-src="{{videoSrc}}" class="yy-video-dir-iframe"></iframe>',
+      link: function (scope) {
+      }
+    };
+  }
+]);
+;

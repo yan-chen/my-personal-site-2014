@@ -12,6 +12,11 @@ angular.module('myPageApp')
                 'fileName': 'yyPage Wireframe Version #2',
                 'filePath': 'data/yy_page_v2.pdf',
                 'fileThumbPath': 'data/yy_page_v2_thumb.png'
+            },
+            {
+                'fileName': 'Community Blog Mockup',
+                'filePath': 'data/yy_community_blog.pdf',
+                'fileThumbPath': 'data/yy_community_blog_thumb.png'
             }
         ];
         $scope.setCurrentFile = function (file) {

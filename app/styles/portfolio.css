@@ -78,9 +78,10 @@
 
 
 /**** for portfolio page modal****/
-#portfolio-filePreviewModal .file-preview-modal {
-    width: 80%;
-    max-width: 800px;
+#portfolio-filePreviewModal .file-preview-modal.modal-dialog {
+    width: 85%;
+    min-width: 300px;
+    max-width: 1000px;
 }
 
 #portfolio-filePreviewModal .file-preview-modal .modal-body {
@@ -93,12 +94,22 @@
 }
 
 /**** for portfolio demo modal ****/
+#portfolio-demoPreviewModal .demo-preview-modal.modal-dialog {
+    width: 85%;
+    min-width: 300px;
+    max-width: 1000px;
+}
+
 #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
     height: 500px;
 }
 
 /**** portfolio project modal ****/
 
+#portfolio-projectPreviewModal .project-preview-modal.modal-dialog {
+    width: 600px;
+    height: 500px;
+}
 #portfolio-projectPreviewModal .project-preview-modal .modal-body {
     width: 600px;
     height: 500px;

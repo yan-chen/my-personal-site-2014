@@ -12,12 +12,28 @@ hr.title-separator-bold {
   margin-right: 5px;
 }
 
-.icon-1x {
+.icon {
+  font-size: inherit;
+}
+
+.icon.icon-1x {
   font-size: 16px;
 }
 
-.icon-2x {
-  font-size: 18px;
+.icon.icon-2x {
+  font-size: 2em;
+}
+
+.icon.icon-3x {
+  font-size: 3em;
+}
+
+.icon.icon-4x {
+  font-size: 4em;
+}
+
+.icon.icon-5x {
+  font-size: 5em;
 }
 
 .no-padding {

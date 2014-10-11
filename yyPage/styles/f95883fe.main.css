@@ -187,12 +187,28 @@ hr.title-separator-bold {
   margin-right: 5px;
 }
 
-.icon-1x {
+.icon {
+  font-size: inherit;
+}
+
+.icon.icon-1x {
   font-size: 16px;
 }
 
-.icon-2x {
-  font-size: 18px;
+.icon.icon-2x {
+  font-size: 2em;
+}
+
+.icon.icon-3x {
+  font-size: 3em;
+}
+
+.icon.icon-4x {
+  font-size: 4em;
+}
+
+.icon.icon-5x {
+  font-size: 5em;
 }
 
 .no-padding {
@@ -361,11 +377,24 @@ hr.title-separator-bold{
     margin-left: 5px;
     margin-right: 5px;
 }
-.icon-1x{
+
+.icon{
+    font-size: inherit;
+}
+.icon.icon-1x{
     font-size:16px;
 }
-.icon-2x{
-    font-size:18px;
+.icon.icon-2x {
+    font-size: 2em;
+}
+.icon.icon-3x {
+    font-size: 3em;
+}
+.icon.icon-4x {
+    font-size: 4em;
+}
+.icon.icon-5x {
+    font-size: 5em;
 }
 .no-padding {
     padding: 0;
@@ -738,8 +767,8 @@ hr.title-separator-bold{
 }
 
 #about-me-container {
-  width: 80%;
-  max-width: 900px;
+  width: 85%;
+  max-width: 1000px;
 }
 
 /*** about-me.html page ***/
@@ -747,7 +776,8 @@ hr.title-separator-bold{
 /* this is for jumbotron with no profile image,but with text) */
 
 #about-me-container .jumbotron {
-  background: url('../images/bg_santa-monica_1.jpg') no-repeat;
+  background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
+  background-size: cover;
   position: relative;
   box-shadow: 0 0 15px #CCC;
   margin-left: auto;
@@ -827,7 +857,19 @@ hr.title-separator-bold{
   transform: rotate(-1deg);
   -webkit-transform: rotate(-1deg);
   box-shadow: 0 0 15px #CCC;
-  border: 1px solid #c5c5c5;
+  border: 1px solid #d3d3d3;
+  margin: 10px 0 30px;
+  padding: 20px;
+  position: relative;
+}
+
+#about-me-container .yy-info-container.previous-info {
+  width: 100%;
+  background: #fff;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  box-shadow: 0 0 15px #CCC;
+  border: 1px solid #d3d3d3;
   margin: 10px 0 30px;
   padding: 20px;
   position: relative;
@@ -873,14 +915,15 @@ hr.title-separator-bold{
 }
 
 #about-me-container {
-    width: 80%;
-    max-width: 900px;
+    width: 85%;
+    max-width: 1000px;
 }
 
 /*** about-me.html page ***/
 /* this is for jumbotron with no profile image,but with text) */
 #about-me-container .jumbotron {
-    background: url('../images/bg_santa-monica_1.jpg') no-repeat;
+    background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
+    background-size: cover;
     position: relative;
     -moz-box-shadow: 0 0 15px #DDD;
     -webkit-box-shadow: 0 0 15px #CCC;
@@ -972,7 +1015,22 @@ hr.title-separator-bold{
     -moz-box-shadow: 0 0 15px #DDD;
     -webkit-box-shadow: 0 0 15px #CCC;
     box-shadow: 0 0 15px #CCC;
-    border: 1px solid #c5c5c5;
+    border: 1px solid #d3d3d3;
+    margin: 10px 0 30px;
+    padding: 20px;
+    position: relative;
+}
+#about-me-container .yy-info-container.previous-info {
+    width: 100%;
+    background: #fff;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-box-shadow: 0 0 15px #DDD;
+    -webkit-box-shadow: 0 0 15px #CCC;
+    box-shadow: 0 0 15px #CCC;
+    border: 1px solid #d3d3d3;
     margin: 10px 0 30px;
     padding: 20px;
     position: relative;
@@ -1054,10 +1112,10 @@ hr.title-separator-bold{
   transition: all linear 0.25s;
   -webkit-transform: rotateY(90deg);
   transform: rotateY(90deg);
+  padding: 15px 25px;
 }
 
 #portfolio-container .portfolio-widget .portfolio-widget-overlay:hover .btn.portfolio-widget-overlay-btn {
-  /*background-color: #ffffff;*/
   border: solid #fff 3px;
   color: #fff;
   padding: 15px 40px;
@@ -1066,15 +1124,28 @@ hr.title-separator-bold{
   transform: rotateY(0deg);
 }
 
-#portfolio-container .portfolio-widget .btn.portfolio-widget-overlay-btn {
-  padding: 15px 25px;
+#portfolio-container .portfolio-widget .portfolio-widget-overlay-touch-device {
+  background-color: rgba(0, 0, 0, 0.50);
+  padding-top: 60px;
+  width: 100%;
+  height: 100%;
+}
+
+#portfolio-container .portfolio-widget .portfolio-widget-overlay-touch-device .btn.portfolio-widget-overlay-btn {
+  border: solid #fff 3px;
+  color: #fff;
+  padding: 15px 40px;
+  font-size: 20px;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 /**** for portfolio page modal****/
 
-#portfolio-filePreviewModal .file-preview-modal {
-  width: 80%;
-  max-width: 800px;
+#portfolio-filePreviewModal .file-preview-modal.modal-dialog {
+  width: 85%;
+  min-width: 300px;
+  max-width: 1000px;
 }
 
 #portfolio-filePreviewModal .file-preview-modal .modal-body {
@@ -1088,11 +1159,22 @@ hr.title-separator-bold{
 
 /**** for portfolio demo modal ****/
 
+#portfolio-demoPreviewModal .demo-preview-modal.modal-dialog {
+  width: 85%;
+  min-width: 300px;
+  max-width: 1000px;
+}
+
 #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
   height: 500px;
 }
 
 /**** portfolio project modal ****/
+
+#portfolio-projectPreviewModal .project-preview-modal.modal-dialog {
+  width: 600px;
+  height: 500px;
+}
 
 #portfolio-projectPreviewModal .project-preview-modal .modal-body {
   width: 600px;
@@ -1222,10 +1304,27 @@ iframe.yy-video-dir-iframe {
     -ms-transform: rotateY(90deg);
     -o-transform: rotateY(90deg);
     transform: rotateY(90deg);
+    padding: 15px 25px;
 }
 
 #portfolio-container .portfolio-widget .portfolio-widget-overlay:hover .btn.portfolio-widget-overlay-btn{
-    /*background-color: #ffffff;*/
+    border:solid #fff 3px;
+    color:#fff;
+    padding:15px 40px;
+    font-size: 20px;
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+#portfolio-container .portfolio-widget .portfolio-widget-overlay-touch-device {
+    background-color: rgba(0, 0, 0, 0.50);
+    padding-top: 60px;
+    width: 100%;
+    height: 100%;
+}
+#portfolio-container .portfolio-widget .portfolio-widget-overlay-touch-device .btn.portfolio-widget-overlay-btn{
     border:solid #fff 3px;
     color:#fff;
     padding:15px 40px;
@@ -1238,14 +1337,11 @@ iframe.yy-video-dir-iframe {
 }
 
 
-#portfolio-container .portfolio-widget .btn.portfolio-widget-overlay-btn {
-    padding: 15px 25px;
-}
-
 /**** for portfolio page modal****/
-#portfolio-filePreviewModal .file-preview-modal {
-    width: 80%;
-    max-width: 800px;
+#portfolio-filePreviewModal .file-preview-modal.modal-dialog {
+    width: 85%;
+    min-width: 300px;
+    max-width: 1000px;
 }
 
 #portfolio-filePreviewModal .file-preview-modal .modal-body {
@@ -1258,12 +1354,22 @@ iframe.yy-video-dir-iframe {
 }
 
 /**** for portfolio demo modal ****/
+#portfolio-demoPreviewModal .demo-preview-modal.modal-dialog {
+    width: 85%;
+    min-width: 300px;
+    max-width: 1000px;
+}
+
 #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
     height: 500px;
 }
 
 /**** portfolio project modal ****/
 
+#portfolio-projectPreviewModal .project-preview-modal.modal-dialog {
+    width: 600px;
+    height: 500px;
+}
 #portfolio-projectPreviewModal .project-preview-modal .modal-body {
     width: 600px;
     height: 500px;

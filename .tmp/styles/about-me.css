@@ -3,8 +3,8 @@
 }
 
 #about-me-container {
-  width: 80%;
-  max-width: 900px;
+  width: 85%;
+  max-width: 1000px;
 }
 
 /*** about-me.html page ***/
@@ -12,7 +12,8 @@
 /* this is for jumbotron with no profile image,but with text) */
 
 #about-me-container .jumbotron {
-  background: url('../images/bg_santa-monica_1.jpg') no-repeat;
+  background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
+  background-size: cover;
   position: relative;
   box-shadow: 0 0 15px #CCC;
   margin-left: auto;
@@ -92,7 +93,19 @@
   transform: rotate(-1deg);
   -webkit-transform: rotate(-1deg);
   box-shadow: 0 0 15px #CCC;
-  border: 1px solid #c5c5c5;
+  border: 1px solid #d3d3d3;
+  margin: 10px 0 30px;
+  padding: 20px;
+  position: relative;
+}
+
+#about-me-container .yy-info-container.previous-info {
+  width: 100%;
+  background: #fff;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  box-shadow: 0 0 15px #CCC;
+  border: 1px solid #d3d3d3;
   margin: 10px 0 30px;
   padding: 20px;
   position: relative;
