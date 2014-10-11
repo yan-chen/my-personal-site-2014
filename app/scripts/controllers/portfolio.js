@@ -14,7 +14,7 @@ angular.module('myPageApp')
                 'fileThumbPath': 'data/yy_page_v2_thumb.png'
             },
             {
-                'fileName': 'Community Blog Mockup',
+                'fileName': 'Community Blog Wireframe',
                 'filePath': 'data/yy_community_blog.pdf',
                 'fileThumbPath': 'data/yy_community_blog_thumb.png'
             }
