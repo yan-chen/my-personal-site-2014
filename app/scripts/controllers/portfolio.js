@@ -37,8 +37,13 @@ angular.module('myPageApp')
         $scope.webComponentDemos = [
             {
                 'demoName': 'AngularJS To Do List',
-                'demoPath': 'views/templates/portfolio.todo.tpl.html',
+                'demoPath': 'views/templates/portfolio-todo.tpl.html',
                 'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
+            },
+            {
+                'demoName': 'Sample Widgets',
+                'demoPath': 'views/templates/portfolio-widget.tpl.html',
+                'demoThumbPath': 'data/yy_portfolio_widget_thumb.png'
             },
             {
                 'demoName': 'D3 Chart (coming ...)',

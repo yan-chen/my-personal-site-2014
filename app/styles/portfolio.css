@@ -102,6 +102,8 @@
 
 #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
     height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /**** portfolio project modal ****/
@@ -131,7 +133,7 @@ iframe.yy-video-dir-iframe {
     width: 100%;
 }
 
-/**** portfolio.todo.tpl.html ****/
+/**** portfolio-todo.tpl.html ****/
 
 #portfolio-todo-panel .todo-tabset li.todo-tab:first-child {
     margin-left: 10px;

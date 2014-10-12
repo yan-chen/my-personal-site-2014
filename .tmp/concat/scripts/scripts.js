@@ -641,7 +641,7 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
     $scope.webComponentDemos = [
       {
         'demoName': 'AngularJS To Do List',
-        'demoPath': 'views/templates/portfolio.todo.tpl.html',
+        'demoPath': 'views/templates/portfolio-todo.tpl.html',
         'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
       },
       {
