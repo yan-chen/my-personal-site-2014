@@ -621,7 +621,7 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
         'fileThumbPath': 'data/yy_page_v2_thumb.png'
       },
       {
-        'fileName': 'Community Blog Mockup',
+        'fileName': 'Community Blog Wireframe',
         'filePath': 'data/yy_community_blog.pdf',
         'fileThumbPath': 'data/yy_community_blog_thumb.png'
       }
@@ -643,6 +643,11 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
         'demoName': 'AngularJS To Do List',
         'demoPath': 'views/templates/portfolio-todo.tpl.html',
         'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
+      },
+      {
+        'demoName': 'Sample Widgets',
+        'demoPath': 'views/templates/portfolio-widget.tpl.html',
+        'demoThumbPath': 'data/yy_portfolio_widget_thumb.png'
       },
       {
         'demoName': 'D3 Chart (coming ...)',
@@ -776,6 +781,44 @@ angular.module('myPageApp').controller('PortfolioTodoCtrl', [
     };
     $scope.removeFromList = function (array, indexToBeRemoved) {
       array.splice(indexToBeRemoved, 1);
+    };
+  }
+]);
+'use strict';
+/**
+ * @ngdoc function
+ * @name myPageApp.controller:PortfoliocalendarwidgetCtrl
+ * @description
+ * # PortfoliocalendarwidgetCtrl
+ * Controller of the myPageApp
+ */
+angular.module('myPageApp').controller('PortfolioCalendarWidgetCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.widgetColorTheme = '000000';
+    $scope.ppTestData = {
+      daysCount: '25',
+      associateCount: '3',
+      cvpCount: '80'
+    };
+    $scope.validateDateCount = function (num) {
+      console.log((num.toString().length < 2 ? '0' + num : num).toString());
+      return (num.toString().length < 2 ? '0' + num : num).toString();
+    };
+    $scope.today = new Date();
+    $scope.greeting = function (date) {
+      var greetingMsg;
+      if (date.getHours() >= 12) {
+        greetingMsg = 'Afternoon';
+      } else if (date.getHours() >= 18) {
+        greetingMsg = 'Evening';
+      } else {
+        greetingMsg = 'Morning';
+      }
+      return greetingMsg;
+    };
+    $scope.hexToRgba = function (hexVal, opacity) {
+      return 'rgba(' + parseInt(hexVal.substr(0, 2), 16) + ',' + parseInt(hexVal.substr(2, 2), 16) + ',' + parseInt(hexVal.substr(4, 2), 16) + ',' + opacity + ')';
     };
   }
 ]);

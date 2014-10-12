@@ -93,6 +93,8 @@
 
 #portfolio-demoPreviewModal .demo-preview-modal .modal-body {
   height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /**** portfolio project modal ****/
