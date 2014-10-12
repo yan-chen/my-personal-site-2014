@@ -632,7 +632,7 @@ angular.module('myPageApp').controller('PortfolioCtrl', [
     $scope.projects = [{
         'fileName': 'Widget Bank Design',
         'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
-        'fileThumbPath': 'videos/usana_widgetbank_thumb.png'
+        'fileThumbPath': 'data/usana_widgetbank_thumb.png'
       }];
     $scope.setCurrentProject = function (file) {
       $scope.currentProject = file;
