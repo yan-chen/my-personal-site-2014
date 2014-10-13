@@ -18,6 +18,7 @@
     overflow: hidden;
     background-size: 100% auto;
     text-align: center;
+    background-size: cover;
 }
 
 #portfolio-container .portfolio-widget .portfolio-widget-overlay {
