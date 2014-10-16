@@ -18,8 +18,8 @@ angular.module('myPageApp')
         };
 
         $scope.validateDateCount = function (num) {
-            console.log((num.toString().length < 2 ? "0" + num : num ).toString());
-            return ( num.toString().length < 2 ? "0" + num : num ).toString();
+            console.log((num.toString().length < 2 ? '0' + num : num ).toString());
+            return ( num.toString().length < 2 ? '0' + num : num ).toString();
         };
 
         $scope.today = new Date();

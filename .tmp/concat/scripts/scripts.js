@@ -6,7 +6,8 @@ angular.module('myPageApp', [
   'ui.router',
   'ui.bootstrap',
   'LocalStorageModule',
-  'ngAnimate'
+  'ngAnimate',
+  'd3'
 ]).config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -88,6 +89,19 @@ angular.module('myPageApp').controller('MainCtrl', [
     $scope.isAsideVisible = false;
     $scope.toggleAsideNav = function () {
       $scope.isAsideVisible = !$scope.isAsideVisible;
+    };
+    $scope.returnViewPortSize = function () {
+      var viewPortSize;
+      if (window.innerWidth < 342) {
+        viewPortSize = 'xs';
+      } else if (window.innerWidth < 767) {
+        viewPortSize = 'sm';
+      } else if (window.innerWidth < 968) {
+        viewPortSize = 'md';
+      } else {
+        viewPortSize = 'lg';
+      }
+      return viewPortSize;
     };
     $scope.isViewPortSizeSm = function () {
       if (window.innerWidth < 767) {
@@ -373,6 +387,307 @@ angular.module('myPageApp').controller('PersonalCtrl', [
   }
 ]);
 'use strict';
+angular.module('myPageApp').controller('NavCtrl', [
+  '$scope',
+  function ($scope) {
+  }
+]);
+'use strict';
+angular.module('myPageApp').controller('PortfolioCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.wireframeFiles = [
+      {
+        'fileName': 'yyPage Wireframe Version #1',
+        'filePath': 'data/yy_page_v1.pdf',
+        'fileThumbPath': 'data/yy_page_v1_thumb.png'
+      },
+      {
+        'fileName': 'yyPage Wireframe Version #2',
+        'filePath': 'data/yy_page_v2.pdf',
+        'fileThumbPath': 'data/yy_page_v2_thumb.png'
+      },
+      {
+        'fileName': 'Community Blog Wireframe',
+        'filePath': 'data/yy_community_blog.pdf',
+        'fileThumbPath': 'data/yy_community_blog_thumb.png'
+      }
+    ];
+    $scope.setCurrentFile = function (file) {
+      $scope.currentFile = file;
+    };
+    $scope.projects = [{
+        'fileName': 'Widget Bank Design',
+        'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
+        'fileThumbPath': 'data/usana_widgetbank_thumb.png'
+      }];
+    $scope.setCurrentProject = function (file) {
+      $scope.currentProject = file;
+    };
+    $scope.webComponentDemos = [
+      {
+        'demoName': 'AngularJS To Do List',
+        'demoPath': 'views/templates/portfolio-todo.tpl.html',
+        'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
+      },
+      {
+        'demoName': 'Sample Widgets',
+        'demoPath': 'views/templates/portfolio-widget.tpl.html',
+        'demoThumbPath': 'data/yy_portfolio_widget_thumb.png'
+      },
+      {
+        'demoName': 'D3 Chart (coming ...)',
+        'demoPath': 'views/templates/portfolio-d3.tpl.html',
+        'demoThumbPath': ''
+      },
+      {
+        'demoName': 'Others (coming ...)',
+        'demoPath': '',
+        'demoThumbPath': ''
+      }
+    ];
+    $scope.setCurrentDemo = function (demo) {
+      $scope.currentDemo = demo;
+    };
+  }
+]);
+'use strict';
+angular.module('myPageApp').controller('PortfolioTodoCtrl', [
+  '$scope',
+  'localStorageService',
+  function ($scope, localStorageService) {
+    $scope.toDoTabs = [
+      {
+        'title': 'Current List',
+        'content': 'todoCurrentList.tpl.html'
+      },
+      {
+        'title': 'Archived List',
+        'content': 'todoArchivedList.tpl.html'
+      }
+    ];
+    /**
+         * Retrieve data from local storage if existed, if not set it to default values
+         * @returns {*[]}
+         */
+    var setData = function () {
+      var toDoList, tempArchiveList;
+      if (localStorageService.get('yyPage-portfolio-todo-list') !== null) {
+        toDoList = localStorageService.get('yyPage-portfolio-todo-list');
+        tempArchiveList = function () {
+          var tempList = [];
+          angular.forEach(toDoList, function (todo) {
+            if (todo.isDone) {
+              tempList.unshift(todo);
+            }
+          });
+          return tempList;
+        };
+      } else {
+        toDoList = [
+          {
+            'description': 'Need to call ...',
+            'isDone': false
+          },
+          {
+            'description': 'Need to buy ...',
+            'isDone': false
+          }
+        ];
+        tempArchiveList = [];
+      }
+      return [
+        toDoList,
+        tempArchiveList
+      ];
+    };
+    $scope.toDoList = setData()[0];
+    $scope.tempArchiveList = setData()[1];
+    if (localStorageService.get('yyPage-portfolio-archived-list') !== null) {
+      $scope.archivedList = localStorageService.get('yyPage-portfolio-archived-list');
+    } else {
+      $scope.archivedList = [];
+    }
+    $scope.todo = {};
+    /**
+         * Add item todo into the beginning of the toDoList array
+         * @param {Object} todo
+         * @returns {{}}
+         */
+    $scope.addToList = function (todo) {
+      $scope.toDoList.unshift({
+        'description': todo.description,
+        'isDone': false
+      });
+      $scope.todo = {};
+    };
+    $scope.addToTempArchiveList = function (todo) {
+      if ($scope.tempArchiveList.indexOf(todo) === -1) {
+        $scope.tempArchiveList.unshift(todo);
+      } else {
+        $scope.tempArchiveList.remove(todo);
+      }
+    };
+    $scope.selectAll = function () {
+      $scope.tempArchiveList = angular.copy($scope.toDoList);
+    };
+    $scope.unselectAll = function () {
+      $scope.tempArchiveList = [];
+    };
+    $scope.archiveTodo = function () {
+      var tempToDoList = [];
+      angular.forEach($scope.toDoList, function (todo) {
+        if (todo.isDone) {
+          $scope.archivedList.unshift(todo);
+        } else {
+          tempToDoList.unshift(todo);
+        }
+      });
+      $scope.toDoList = tempToDoList;
+    };
+    $scope.saveToDoLocally = function () {
+      localStorageService.set('yyPage-portfolio-todo-list', $scope.toDoList);
+      localStorageService.set('yyPage-portfolio-archived-list', $scope.archivedList);
+    };
+    $scope.clearLocalToDo = function () {
+      localStorageService.remove('yyPage-portfolio-todo-list');
+      localStorageService.remove('yyPage-portfolio-archived-list');
+      $scope.toDoList = [
+        {
+          'description': 'Need to call ...',
+          'isDone': false
+        },
+        {
+          'description': 'Need to buy ...',
+          'isDone': false
+        }
+      ];
+      $scope.tempArchiveList = [];
+      $scope.archivedList = [];
+    };
+    $scope.removeFromList = function (array, indexToBeRemoved) {
+      array.splice(indexToBeRemoved, 1);
+    };
+  }
+]);
+'use strict';
+/**
+ * @ngdoc function
+ * @name myPageApp.controller:PortfoliocalendarwidgetCtrl
+ * @description
+ * # PortfoliocalendarwidgetCtrl
+ * Controller of the myPageApp
+ */
+angular.module('myPageApp').controller('PortfolioCalendarWidgetCtrl', [
+  '$scope',
+  function ($scope) {
+    $scope.widgetColorTheme = '000000';
+    $scope.ppTestData = {
+      daysCount: '25',
+      associateCount: '3',
+      cvpCount: '80'
+    };
+    $scope.validateDateCount = function (num) {
+      console.log((num.toString().length < 2 ? '0' + num : num).toString());
+      return (num.toString().length < 2 ? '0' + num : num).toString();
+    };
+    $scope.today = new Date();
+    $scope.greeting = function (date) {
+      var greetingMsg;
+      if (date.getHours() >= 12) {
+        greetingMsg = 'Afternoon';
+      } else if (date.getHours() >= 18) {
+        greetingMsg = 'Evening';
+      } else {
+        greetingMsg = 'Morning';
+      }
+      return greetingMsg;
+    };
+    $scope.hexToRgba = function (hexVal, opacity) {
+      return 'rgba(' + parseInt(hexVal.substr(0, 2), 16) + ',' + parseInt(hexVal.substr(2, 2), 16) + ',' + parseInt(hexVal.substr(4, 2), 16) + ',' + opacity + ')';
+    };
+  }
+]);
+'use strict';
+angular.module('myPageApp').controller('PortfolioD3Ctrl', [
+  '$http',
+  '$templateCache',
+  function ($scope, $http, $templateCache) {
+    $scope.fetchData = function (url) {
+      $http.get('data/d3_bar_chart.json', { cache: $templateCache }).success(function (data) {
+        return data;
+      }).error(function (data) {
+        return data || 'Request failed';
+      });
+    };
+    $scope.url = 'data/d3_bar_chart.json';
+    $scope.fetchData().then(function (data) {
+      $scope.d3BarchartData = data;
+    });
+  }
+]);
+'use strict';
+angular.module('myPageApp').controller('loginCtrl', [
+  '$scope',
+  '$modal',
+  function ($scope, $modal) {
+    //var loginModalCtrl = function ($scope, $modalInstance, items, $rootScope, AUTH_EVENTS, AuthService) {
+    var loginModalCtrl = function ($scope, $modalInstance, $rootScope, localStorageService) {
+      $scope.credentials = {
+        adminId: '',
+        password: '',
+        rememberMe: ''
+      };
+      if (localStorageService.get('previousLoggedInUser')) {
+        $scope.credentials.adminId = localStorageService.get('previousLoggedInUser');
+      }
+      $scope.adminLogin = function (credentials) {
+        $scope.isLoginFailed = false;
+        if (credentials.adminId === 'yyadmin' && credentials.password === 'admin') {
+          $rootScope.isAdmin = true;
+          $rootScope.adminId = credentials.adminId;
+          $scope.$broadcast('admin logged in');
+          console.log('you are logged in as ' + credentials.adminId);
+          $modalInstance.close($scope.credentialsVerified, $scope.userName);
+          if (credentials.rememberMe) {
+            localStorageService.set('previousLoggedInUser', credentials.adminId);
+          }
+        } else {
+          $scope.isLoginFailed = true;
+          localStorageService.set('previousLoggedInUser', null);
+        }
+      };
+      /*
+
+             $scope.login = function (credentials) {
+             AuthService.login(credentials).then(function (user) {
+             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+             $scope.setCurrentUser(user);
+             $scope.isLoginFailed = false;
+             }, function () {
+             $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+             $scope.isLoginFailed = true;
+             });
+             };
+             */
+      $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+      };
+    };
+    $scope.openLoginModal = function (size) {
+      var modalInstance = $modal.open({
+          templateUrl: 'views/login.html',
+          controller: loginModalCtrl,
+          size: size,
+          resolve: {}
+        });
+      modalInstance.result.then(function () {
+      }, function () {
+      });
+    };
+  }
+]);
+'use strict';
 angular.module('myPageApp').directive('yyMasonryDir', [
   '$timeout',
   function ($timeout) {
@@ -600,296 +915,6 @@ angular.module('myPageApp').directive('yyQtip', [
   }
 ]);
 'use strict';
-angular.module('myPageApp').controller('NavCtrl', [
-  '$scope',
-  function ($scope) {
-  }
-]);
-'use strict';
-angular.module('myPageApp').controller('PortfolioCtrl', [
-  '$scope',
-  function ($scope) {
-    $scope.wireframeFiles = [
-      {
-        'fileName': 'yyPage Wireframe Version #1',
-        'filePath': 'data/yy_page_v1.pdf',
-        'fileThumbPath': 'data/yy_page_v1_thumb.png'
-      },
-      {
-        'fileName': 'yyPage Wireframe Version #2',
-        'filePath': 'data/yy_page_v2.pdf',
-        'fileThumbPath': 'data/yy_page_v2_thumb.png'
-      },
-      {
-        'fileName': 'Community Blog Wireframe',
-        'filePath': 'data/yy_community_blog.pdf',
-        'fileThumbPath': 'data/yy_community_blog_thumb.png'
-      }
-    ];
-    $scope.setCurrentFile = function (file) {
-      $scope.currentFile = file;
-    };
-    $scope.projects = [{
-        'fileName': 'Widget Bank Design',
-        'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
-        'fileThumbPath': 'data/usana_widgetbank_thumb.png'
-      }];
-    $scope.setCurrentProject = function (file) {
-      $scope.currentProject = file;
-      console.log($scope.currentProject);
-    };
-    $scope.webComponentDemos = [
-      {
-        'demoName': 'AngularJS To Do List',
-        'demoPath': 'views/templates/portfolio-todo.tpl.html',
-        'demoThumbPath': 'data/yy_portfolio_todo_thumb.png'
-      },
-      {
-        'demoName': 'Sample Widgets',
-        'demoPath': 'views/templates/portfolio-widget.tpl.html',
-        'demoThumbPath': 'data/yy_portfolio_widget_thumb.png'
-      },
-      {
-        'demoName': 'D3 Chart (coming ...)',
-        'demoPath': '',
-        'demoThumbPath': ''
-      },
-      {
-        'demoName': 'Others (coming ...)',
-        'demoPath': '',
-        'demoThumbPath': ''
-      }
-    ];
-    $scope.setCurrentDemo = function (demo) {
-      $scope.currentDemo = demo;
-    };
-  }
-]);
-'use strict';
-angular.module('myPageApp').controller('PortfolioTodoCtrl', [
-  '$scope',
-  'localStorageService',
-  function ($scope, localStorageService) {
-    $scope.toDoTabs = [
-      {
-        'title': 'Current List',
-        'content': 'todoCurrentList.tpl.html'
-      },
-      {
-        'title': 'Archived List',
-        'content': 'todoArchivedList.tpl.html'
-      }
-    ];
-    /**
-         * Retrieve data from local storage if existed, if not set it to default values
-         * @returns {*[]}
-         */
-    var setData = function () {
-      var toDoList, tempArchiveList;
-      if (localStorageService.get('yyPage-portfolio-todo-list') !== null) {
-        toDoList = localStorageService.get('yyPage-portfolio-todo-list');
-        tempArchiveList = function () {
-          var tempList = [];
-          angular.forEach(toDoList, function (todo) {
-            if (todo.isDone) {
-              tempList.unshift(todo);
-            }
-          });
-          return tempList;
-        };
-      } else {
-        toDoList = [
-          {
-            'description': 'Need to call ...',
-            'isDone': false
-          },
-          {
-            'description': 'Need to buy ...',
-            'isDone': false
-          }
-        ];
-        tempArchiveList = [];
-      }
-      return [
-        toDoList,
-        tempArchiveList
-      ];
-    };
-    $scope.toDoList = setData()[0];
-    $scope.tempArchiveList = setData()[1];
-    if (localStorageService.get('yyPage-portfolio-archived-list') !== null) {
-      $scope.archivedList = localStorageService.get('yyPage-portfolio-archived-list');
-    } else {
-      $scope.archivedList = [];
-    }
-    $scope.todo = {};
-    /**
-         * Add item todo into the beginning of the toDoList array
-         * @param {Object} todo
-         * @returns {{}}
-         */
-    $scope.addToList = function (todo) {
-      $scope.toDoList.unshift({
-        'description': todo.description,
-        'isDone': false
-      });
-      $scope.todo = {};
-    };
-    $scope.addToTempArchiveList = function (todo) {
-      if ($scope.tempArchiveList.indexOf(todo) === -1) {
-        $scope.tempArchiveList.unshift(todo);
-      } else {
-        $scope.tempArchiveList.remove(todo);
-      }
-    };
-    $scope.selectAll = function () {
-      $scope.tempArchiveList = angular.copy($scope.toDoList);
-    };
-    $scope.unselectAll = function () {
-      $scope.tempArchiveList = [];
-    };
-    $scope.archiveTodo = function () {
-      var tempToDoList = [];
-      angular.forEach($scope.toDoList, function (todo) {
-        if (todo.isDone) {
-          $scope.archivedList.unshift(todo);
-        } else {
-          tempToDoList.unshift(todo);
-        }
-      });
-      $scope.toDoList = tempToDoList;
-    };
-    $scope.saveToDoLocally = function () {
-      localStorageService.set('yyPage-portfolio-todo-list', $scope.toDoList);
-      localStorageService.set('yyPage-portfolio-archived-list', $scope.archivedList);
-    };
-    $scope.clearLocalToDo = function () {
-      localStorageService.remove('yyPage-portfolio-todo-list');
-      localStorageService.remove('yyPage-portfolio-archived-list');
-      $scope.toDoList = [
-        {
-          'description': 'Need to call ...',
-          'isDone': false
-        },
-        {
-          'description': 'Need to buy ...',
-          'isDone': false
-        }
-      ];
-      $scope.tempArchiveList = [];
-      $scope.archivedList = [];
-    };
-    $scope.removeFromList = function (array, indexToBeRemoved) {
-      array.splice(indexToBeRemoved, 1);
-    };
-  }
-]);
-'use strict';
-/**
- * @ngdoc function
- * @name myPageApp.controller:PortfoliocalendarwidgetCtrl
- * @description
- * # PortfoliocalendarwidgetCtrl
- * Controller of the myPageApp
- */
-angular.module('myPageApp').controller('PortfolioCalendarWidgetCtrl', [
-  '$scope',
-  function ($scope) {
-    $scope.widgetColorTheme = '000000';
-    $scope.ppTestData = {
-      daysCount: '25',
-      associateCount: '3',
-      cvpCount: '80'
-    };
-    $scope.validateDateCount = function (num) {
-      console.log((num.toString().length < 2 ? '0' + num : num).toString());
-      return (num.toString().length < 2 ? '0' + num : num).toString();
-    };
-    $scope.today = new Date();
-    $scope.greeting = function (date) {
-      var greetingMsg;
-      if (date.getHours() >= 12) {
-        greetingMsg = 'Afternoon';
-      } else if (date.getHours() >= 18) {
-        greetingMsg = 'Evening';
-      } else {
-        greetingMsg = 'Morning';
-      }
-      return greetingMsg;
-    };
-    $scope.hexToRgba = function (hexVal, opacity) {
-      return 'rgba(' + parseInt(hexVal.substr(0, 2), 16) + ',' + parseInt(hexVal.substr(2, 2), 16) + ',' + parseInt(hexVal.substr(4, 2), 16) + ',' + opacity + ')';
-    };
-  }
-]);
-'use strict';
-angular.module('myPageApp').controller('PortfolioD3Ctrl', [
-  '$scope',
-  function ($scope) {
-  }
-]);
-'use strict';
-angular.module('myPageApp').controller('loginCtrl', [
-  '$scope',
-  '$modal',
-  function ($scope, $modal) {
-    //var loginModalCtrl = function ($scope, $modalInstance, items, $rootScope, AUTH_EVENTS, AuthService) {
-    var loginModalCtrl = function ($scope, $modalInstance, $rootScope, localStorageService) {
-      $scope.credentials = {
-        adminId: '',
-        password: '',
-        rememberMe: ''
-      };
-      if (localStorageService.get('previousLoggedInUser')) {
-        $scope.credentials.adminId = localStorageService.get('previousLoggedInUser');
-      }
-      $scope.adminLogin = function (credentials) {
-        $scope.isLoginFailed = false;
-        if (credentials.adminId === 'yyadmin' && credentials.password === 'admin') {
-          $rootScope.isAdmin = true;
-          $rootScope.adminId = credentials.adminId;
-          $scope.$broadcast('admin logged in');
-          console.log('you are logged in as ' + credentials.adminId);
-          $modalInstance.close($scope.credentialsVerified, $scope.userName);
-          if (credentials.rememberMe) {
-            localStorageService.set('previousLoggedInUser', credentials.adminId);
-          }
-        } else {
-          $scope.isLoginFailed = true;
-          localStorageService.set('previousLoggedInUser', null);
-        }
-      };
-      /*
-
-             $scope.login = function (credentials) {
-             AuthService.login(credentials).then(function (user) {
-             $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-             $scope.setCurrentUser(user);
-             $scope.isLoginFailed = false;
-             }, function () {
-             $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-             $scope.isLoginFailed = true;
-             });
-             };
-             */
-      $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-      };
-    };
-    $scope.openLoginModal = function (size) {
-      var modalInstance = $modal.open({
-          templateUrl: 'views/login.html',
-          controller: loginModalCtrl,
-          size: size,
-          resolve: {}
-        });
-      modalInstance.result.then(function () {
-      }, function () {
-      });
-    };
-  }
-]);
-'use strict';
 angular.module('myPageApp').directive('yyVideoDir', [
   '$sce',
   function ($sce) {
@@ -904,3 +929,126 @@ angular.module('myPageApp').directive('yyVideoDir', [
   }
 ]);
 ;
+'use strict';
+/**
+ * @ngdoc directive
+ * @name myPageApp.directive:yyD3BarChart
+ * @description
+ * # yyD3BarChart
+ */
+angular.module('myPageApp').directive('yyD3BarChart', [
+  '$window',
+  '$timeout',
+  'd3Service',
+  function ($window, $timeout, d3Service) {
+    return {
+      restrict: 'A',
+      scope: {
+        label: '@',
+        onClick: '&'
+      },
+      link: function (scope, ele, attrs) {
+        d3Service.d3().then(function (d3) {
+          var renderTimeout;
+          var margin = parseInt(attrs.margin) || 20, barHeight = parseInt(attrs.barHeight) || 20, barPadding = parseInt(attrs.barPadding) || 5;
+          var svg = d3.select(ele[0]).append('svg').style('width', '100%');
+          $window.onresize = function () {
+            scope.$apply();
+          };
+          /*                    // hard-code data
+                    scope.data = [
+                        {name: 'Greg', score: 98},
+                        {name: 'Ari', score: 96},
+                        {name: 'Q', score: 75},
+                        {name: 'Loser', score: 48}
+                    ];*/
+          scope.$watch(function () {
+            return angular.element($window)[0].innerWidth;
+          }, function () {
+            scope.render(scope.data);
+          });
+          scope.$watch('data', function (newData) {
+            scope.render(newData);
+          }, true);
+          scope.render = function (data) {
+            svg.selectAll('*').remove();
+            if (!data) {
+              return;
+            }
+            //                        if (renderTimeout) clearTimeout(renderTimeout);
+            renderTimeout = $timeout(function () {
+              var width = d3.select(ele[0])[0][0].offsetWidth - margin, height = data.length * (barHeight + barPadding), color = d3.scale.category20(), xScale = d3.scale.linear().domain([
+                  0,
+                  d3.max(data, function (d) {
+                    return d.score;
+                  })
+                ]).range([
+                  0,
+                  width
+                ]);
+              svg.attr('height', height);
+              svg.selectAll('rect').data(data).enter().append('rect').on('click', function (d, i) {
+                return scope.onClick({ item: d });
+              }).attr('height', barHeight).attr('width', 140).attr('x', Math.round(margin / 2)).attr('y', function (d, i) {
+                return i * (barHeight + barPadding);
+              }).attr('fill', function (d) {
+                return color(d.score);
+              }).transition().duration(1000).attr('width', function (d) {
+                return xScale(d.score);
+              });
+              svg.selectAll('text').data(data).enter().append('text').attr('fill', '#fff').attr('y', function (d, i) {
+                return i * (barHeight + barPadding) + 15;
+              }).attr('x', 15).text(function (d) {
+                return d.name + ' (scored: ' + d.score + ')';
+              });
+            }, 200);
+          };
+          scope.render(scope.data);
+        });
+      }
+    };
+  }
+]);
+'use strict';
+/**
+ * @ngdoc service
+ * @name d3.d3Service
+ * @description
+ * # d3Service
+ * Factory in the myPageApp.
+ */
+angular.module('d3', []).factory('d3Service', [
+  '$document',
+  '$q',
+  '$rootScope',
+  function ($document, $q, $rootScope) {
+    var d = $q.defer();
+    function onScriptLoad() {
+      //Load client in the browser
+      $rootScope.$apply(function () {
+        d.resolve(window.d3);
+      });
+    }
+    // Create a script tag with d3 as the source
+    // and call our onScriptLoad callback when it
+    // has been loaded
+    var scriptTag = $document[0].createElement('script');
+    scriptTag.type = 'text/javascript';
+    scriptTag.asyc = true;
+    scriptTag.src = 'bower_components/d3/d3.js';
+    scriptTag.onreadystatechange = function () {
+      if (this.readyState === 'complete') {
+        onScriptLoad();
+      }
+    };
+    scriptTag.onload = onScriptLoad;
+    var s = $document[0].getElementsByTagName('body')[0];
+    s.appendChild(scriptTag);
+    // Public API here
+    return {
+      d3: function () {
+        return d.promise;
+      }
+    };
+  }
+]);

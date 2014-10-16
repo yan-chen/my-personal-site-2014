@@ -31,7 +31,6 @@ angular.module('myPageApp')
         ];
         $scope.setCurrentProject = function (file) {
             $scope.currentProject = file;
-            console.log($scope.currentProject)
         };
 
         $scope.webComponentDemos = [
@@ -47,7 +46,7 @@ angular.module('myPageApp')
             },
             {
                 'demoName': 'D3 Chart (coming ...)',
-                'demoPath': '',
+                'demoPath': 'views/templates/portfolio-d3.tpl.html',
                 'demoThumbPath': ''
             },
             {

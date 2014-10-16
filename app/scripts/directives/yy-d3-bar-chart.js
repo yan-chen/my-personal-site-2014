@@ -31,13 +31,13 @@ angular.module('myPageApp')
                         scope.$apply();
                     };
 
-                    // hard-code data
+/*                    // hard-code data
                     scope.data = [
                         {name: 'Greg', score: 98},
                         {name: 'Ari', score: 96},
                         {name: 'Q', score: 75},
                         {name: 'Loser', score: 48}
-                    ];
+                    ];*/
 
                     scope.$watch(function () {
                         return angular.element($window)[0].innerWidth;

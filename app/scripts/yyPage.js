@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myPageApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate'])
+angular.module('myPageApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate','d3'])
 
     .config(['$stateProvider', '$urlRouterProvider','$sceDelegateProvider', function ($stateProvider, $urlRouterProvider,$sceDelegateProvider) {
 

@@ -17,6 +17,20 @@ angular.module('myPageApp')
             $scope.isAsideVisible = !$scope.isAsideVisible;
         };
 
+        $scope.returnViewPortSize = function () {
+            var viewPortSize;
+            if (window.innerWidth < 342) {
+                viewPortSize = 'xs';
+            } else if (window.innerWidth < 767) {
+                viewPortSize = 'sm';
+            } else if (window.innerWidth < 968) {
+                viewPortSize = 'md';
+            } else {
+                viewPortSize = 'lg';
+            }
+            return viewPortSize;
+        };
+
         $scope.isViewPortSizeSm = function () {
             if (window.innerWidth < 767) {
                 return true;
