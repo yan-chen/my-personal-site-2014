@@ -11,7 +11,7 @@ angular.module('myPageApp')
         return {
             restrict: 'A',
             scope: {
-//                data: '=',
+                data: '=',
                 label: '@',
                 onClick: '&'
             },
@@ -32,12 +32,7 @@ angular.module('myPageApp')
                     };
 
 /*                    // hard-code data
-                    scope.data = [
-                        {name: 'Greg', score: 98},
-                        {name: 'Ari', score: 96},
-                        {name: 'Q', score: 75},
-                        {name: 'Loser', score: 48}
-                    ];*/
+                    scope.data = ;*/
 
                     scope.$watch(function () {
                         return angular.element($window)[0].innerWidth;
@@ -46,6 +41,7 @@ angular.module('myPageApp')
                     });
 
                     scope.$watch('data', function (newData) {
+                        console.log(newData)
                         scope.render(newData);
                     }, true);
 

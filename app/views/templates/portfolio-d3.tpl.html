@@ -1,11 +1,18 @@
 <div id="portfolio-d3-panel" ng-controller="PortfolioD3Ctrl">
 
+    <form class="form-horizontal" role="form">
+        <div class="form-group" style="margin:20px 0;">
+            <select class="form-control" ng-model="currentDataSource"
+                    ng-options="dataSource.label for dataSource in dataSource"></select>
+        </div>
+    </form>
+
     <div class="panel panel-default col-xs-12 col-sm-6">
         <div class="panel-heading">
-            <h5>Example Bar Chart</h5>
+            <h5 ng-bind="d3BarChartDataSet.name"></h5>
         </div>
         <div class="panel-body">
-            <div yy-d3-bar-chart data="d3BarchartData[0]"></div>
+            <div yy-d3-bar-chart data="d3BarChartDataSet.data"></div>
         </div>
     </div>
 

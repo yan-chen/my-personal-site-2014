@@ -1,21 +1,39 @@
 'use strict';
 
 angular.module('myPageApp')
-    .controller('PortfolioD3Ctrl', ['$http', '$templateCache', function ($scope, $http, $templateCache) {
+    .controller('PortfolioD3Ctrl', ['$scope', '$http', '$templateCache', function ($scope, $http, $templateCache) {
+        $scope.dataSource = [
+            {
+                'label': 'Sample Dataset #1',
+                'url': 'data/yy_portfolio_d3_data_1.json'
+            },
+            {
+                'label': 'Sample Dataset #2',
+                'url': 'data/yy_portfolio_d3_data_2.json'
+            }
+        ];
+        $scope.currentDataSource = $scope.dataSource[0];
 
         $scope.fetchData = function (url) {
-            $http.get('data/d3_bar_chart.json', {cache: $templateCache})
+            var tempData = $http.get(url, {cache: $templateCache})
                 .success(function (data) {
                     return data;
                 })
                 .error(function (data) {
                     return data || "Request failed";
                 });
-            };
+            return tempData
+        };
 
-        $scope.url = 'data/d3_bar_chart.json';
-        $scope.fetchData().then(function (data) {
-            $scope.d3BarchartData = data;
+        $scope.$watch('currentDataSource', function (newVal) {
+            if (newVal) {
+                $scope.fetchData($scope.currentDataSource.url);
+            }
         });
+
+        $scope.fetchData($scope.currentDataSource.url).then(function (response) {
+            $scope.d3BarChartDataSet = response.data[0];
+        });
+
 
     }]);
