@@ -191,7 +191,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/}*.{png,jpg,jpeg,gif}',
+                        src: '{,*/}*.{jpg,jpeg,gif,png}',
                         dest: '<%= yeoman.dist %>/images'
                     }
                 ]
@@ -233,20 +233,57 @@ module.exports = function (grunt) {
         // ngmin tries to make the code safe for minification automatically by
         // using the Angular long form for dependency injection. It doesn't work on
         // things like resolve or inject so those have to be done manually.
-        ngmin: {
-            dist: {
+
+        /* ngmin: {
+         dist: {
+         files: [
+         {
+         expand: true,
+         cwd: '.tmp/concat/scripts',
+         src: '*.js',
+         dest: '.tmp/concat/scripts'
+         },
+         {
+         expand: true,
+         cwd: '.tmp/concat/vendors',
+         src: '*.js',
+         dest: '.tmp/concat/vendors'
+         }
+         ]
+         }
+         },*/
+
+        //Oct 22, 2014, installed grunt-ng-annotate and removed grunt-ngmin since ngmin is now deprecated
+        //https://github.com/olov/ng-annotate
+        ngAnnotate: {
+            options: {
+                singleQuotes: true
+            },
+            app1: {
+                files: {
+                    'a.js': ['a.js'],
+                    'c.js': ['b.js'],
+                    'f.js': ['d.js', 'e.js']
+                }
+            },
+            app2: {
                 files: [
                     {
                         expand: true,
-                        cwd: '.tmp/concat/scripts',
-                        src: '*.js',
-                        dest: '.tmp/concat/scripts'
-                    },
+                        src: ['f.js'],
+                        ext: '.annotated.js', // Dest filepaths will have this extension.
+                        extDot: 'last'      // Extensions in filenames begin after the last dot
+                    }
+                ]
+            },
+            app3: {
+                files: [
                     {
                         expand: true,
-                        cwd: '.tmp/concat/vendors',
-                        src: '*.js',
-                        dest: '.tmp/concat/vendors'
+                        src: ['g.js'],
+                        rename: function (dest, src) {
+                            return src + '-annotated';
+                        }
                     }
                 ]
             }
@@ -372,6 +409,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-build-control');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-ng-annotate');
 
     grunt.registerTask('deploy', ['buildcontrol']);
 
@@ -390,7 +428,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', ['clean:server', 'concurrent:test', 'autoprefixer', 'connect:test', 'karma']);
 
-    grunt.registerTask('build', ['clean:dist', 'bowerInstall', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'ngmin', 'copy:dist', 'cdnify', 'uglify', 'rev', 'usemin', 'htmlmin'
+    grunt.registerTask('build', ['clean:dist', 'bowerInstall', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'concat', 'ngAnnotate', 'copy:dist', 'cdnify', 'uglify', 'rev', 'usemin', 'htmlmin'
         //        'cssmin'
     ]);
 

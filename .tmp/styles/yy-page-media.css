@@ -3,11 +3,11 @@
 }
 
 @media (max-width: 768px) {
-  .modal-footer.footer-sm {
-    padding: 10px 20px;
-  }
+    .modal-footer.footer-sm {
+        padding: 10px 20px;
+    }
 
-  #about-me-container {
-    width: 98%;
-  }
+    #about-me-container {
+        width: 98%;
+    }
 }

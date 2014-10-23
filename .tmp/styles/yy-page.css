@@ -1,191 +1,183 @@
 .navbar-brand {
-  padding-left: 30px;
+    padding-left: 30px;
 }
 
 .hr-min {
-  margin: 0;
+    margin: 0;
 }
 
-hr.title-separator-bold {
-  border-width: 8px;
-  margin-left: 5px;
-  margin-right: 5px;
+hr.title-separator-bold{
+    border-width: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.icon {
-  font-size: inherit;
+.icon{
+    font-size: inherit;
 }
-
-.icon.icon-1x {
-  font-size: 16px;
+.icon.icon-1x{
+    font-size:16px;
 }
-
 .icon.icon-2x {
-  font-size: 2em;
+    font-size: 2em;
 }
-
 .icon.icon-3x {
-  font-size: 3em;
+    font-size: 3em;
 }
-
 .icon.icon-4x {
-  font-size: 4em;
+    font-size: 4em;
 }
-
 .icon.icon-5x {
-  font-size: 5em;
+    font-size: 5em;
 }
-
 .no-padding {
-  padding: 0;
+    padding: 0;
 }
 
 .no-margin {
-  margin: 0;
+    margin: 0;
 }
 
 .no-border {
-  border: none;
+    border: none;
 }
 
 .padding-10 {
-  padding: 10px;
+    padding: 10px;
 }
 
 .inline-block {
-  display: inline-block;
+    display: inline-block;
 }
 
 @-webkit-keyframes flash {
-  0% {
-    font-size: 10px;
-  }
-
-  100% {
-    font-size: 1em;
-    color: #d20d11;
-  }
+    0% {
+        font-size: 10px;
+    }
+    100% {
+        font-size: 1em;
+        color: #d20d11;
+    }
 }
 
 @-ms-keyframes flash {
-  0% {
-    font-size: 10px;
-  }
-
-  100% {
-    font-size: 1em;
-    color: #d20d11;
-  }
+    0% {
+        font-size: 10px;
+    }
+    100% {
+        font-size: 1em;
+        color: #d20d11;
+    }
 }
 
 .yy-flash {
-  -webkit-animation: flash 1s infinite alternate;
-  animation: flash 1s infinite alternate;
+    -webkit-animation: flash 1s infinite alternate;
+    animation: flash 1s infinite alternate;
 }
-
 .strike-text {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 .yy-text-danger {
-  color: #d20d11;
+    color: #d20d11;
 }
 
 .yy-text-default {
-  color: #818181;
+    color: #818181;
 }
 
 .yy-text-right {
-  text-align: right;
+    text-align: right;
 }
 
 .btn-transparent {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .btn.yy-btn-dark {
-  background: rgba(0, 0, 0, .8);
-  color: #fff;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
 }
 
 .panel.yy-panel-white {
-  color: #000;
-  background-color: #fff;
-  border: solid 1px #ddd;
+    color: #000;
+    background-color: #fff;
+    border: solid 1px #ddd
 }
 
 .panel.yy-panel-dark {
-  border: solid 1px #000;
+    border: solid 1px #000;
 }
 
 .panel.yy-panel-dark > .panel-heading {
-  color: #fff;
-  background-color: rgba(0, 0, 0, .8);
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
 }
 
 .panel.yy-panel-box-primary {
-  color: #000;
-  background-color: transparent;
-  border: solid 1px #bce8f1;
+    color: #000;
+    background-color: transparent;
+    border: solid 1px #bce8f1;
 }
 
 .panel.yy-panel-box-primary > .panel-heading {
-  background-color: transparent;
-  border-bottom: solid 1px #bce8f1;
+    background-color: transparent;
+    border-bottom: solid 1px #bce8f1;
 }
 
 .panel.yy-panel-box-dark {
-  border: solid 1px #000;
+    border: solid 1px #000;
 }
 
 .panel.yy-panel-box-dark > .panel-heading {
-  color: #000;
-  background-color: #fff;
-  border-bottom: solid 1px #000;
+    color: #000;
+    background-color: #fff;
+    border-bottom: solid 1px #000;
 }
 
 .pointer-cursor {
-  cursor: pointer;
+    cursor: pointer;
 }
+
 
 #yy-nav.aside-open,
 #yy-ui-view.aside-open {
-  position: relative;
-  /*left:-130px;*/
-  right: 130px;
+    position: relative;
+    /*left:-130px;*/
+    right: 130px;
 }
 
-.portfolio-container,
-.personal-container {
-  width: 80%;
-  margin: auto;
+.portfolio-container, .personal-container {
+    width: 80%;
+    margin: auto;
 }
 
 .masonry-image {
-  width: 100%;
+    width: 100%;
 }
 
 .image-modal.modal-dialog {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #imageModal .modal-body {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 #imageModal .modal-image {
-  width: 90%;
-  margin: auto;
+    width: 90%;
+    margin: auto;
 }
+
 
 .yy-page-alert {
-  margin-top: -20px;
+    margin-top: -20px;
+}
+.yy-page-alert.aside-open  {
+    position: relative;
+    right:130px;
 }
 
-.yy-page-alert.aside-open {
-  position: relative;
-  right: 130px;
-}

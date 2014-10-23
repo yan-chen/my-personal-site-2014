@@ -1,148 +1,156 @@
+
 .icon-lang {
-  width: 20px;
+    width: 20px;
 }
 
 #about-me-container {
-  width: 85%;
-  max-width: 1000px;
+    width: 85%;
+    max-width: 1000px;
 }
 
 /*** about-me.html page ***/
-
 /* this is for jumbotron with no profile image,but with text) */
-
 #about-me-container .jumbotron {
-  background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
-  background-size: cover;
-  position: relative;
-  box-shadow: 0 0 15px #CCC;
-  margin-left: auto;
-  margin-right: auto;
-  width: 99%;
+    background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 0 15px #CCC;
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
 }
 
 #about-me-container .jumbotron .lead-profile-thumb {
-  margin-top: -90px;
-  margin-bottom: -15px;
+    margin-top: -90px;
+    margin-bottom: -15px;
 }
 
 #about-me-container .jumbotron .lead-profile-thumb img {
-  width: 130px;
-  height: 130px;
+    width: 130px;
+    height: 130px;
 }
 
 #about-me-container .jumbotron .lead-with-text {
-  min-width: 260px;
-  width: 45%;
-  min-height: 180px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  margin: 55px 0 0 -20px;
-  padding: 20px;
-  text-align: left;
+    min-width: 260px;
+    width: 45%;
+    min-height: 180px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin: 55px 0 0 -20px;
+    padding: 20px;
+    text-align: left;
 }
 
 #about-me-container .jumbotron .sm-media-btn-group {
-  position: absolute;
-  bottom: 5px;
-  right: 15px;
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
 }
 
 /* End this is for jumbotron with no profile image,but with text) */
 
 #about-me-container .jumbotron .profile-img {
-  width: 90%;
-  max-width: 260px;
+    width: 90%;
+    max-width: 260px;
 }
 
 #about-me-container .btn.btn-sm-icon {
-  padding: 0;
-  margin: 5px;
-  border: none;
+    padding: 0;
+    margin: 5px;
+    border: none;
 }
 
 #about-me-container .sm-icon-container {
-  max-width: 350px;
-  margin: auto;
+    max-width: 350px;
+    margin: auto;
 }
 
 #about-me-container .sm-icon {
-  width: 35px;
-  height: 35px;
+    width: 35px;
+    height: 35px;
 }
 
 #about-me-container .work-logo-thumb {
-  max-width: 100px;
-  max-height: 100px;
-  border: none;
-  padding: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    border: none;
+    padding: 10px;
 }
 
+/*
+.work-info-qtip{
+    max-width: 250px;
+    width: 2500px;
+    height: auto;
+}*/
+
 .work-info-qtip a {
-  color: #ffffff;
+    color: #ffffff;
 }
 
 .work-info-qtip .qtip-content {
-  padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 /*** END about-me.html page ***/
-
 #about-me-container .yy-info-container {
-  width: 100%;
-  background: #fff;
-  transform: rotate(-1deg);
-  -webkit-transform: rotate(-1deg);
-  box-shadow: 0 0 15px #CCC;
-  border: 1px solid #d3d3d3;
-  margin: 10px 0 30px;
-  padding: 20px;
-  position: relative;
+    width: 100%;
+    background: #fff;
+    transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
+    box-shadow: 0 0 15px #CCC;
+    border: 1px solid #d3d3d3;
+    margin: 10px 0 30px;
+    padding: 20px;
+    position: relative;
 }
-
 #about-me-container .yy-info-container.previous-info {
-  width: 100%;
-  background: #fff;
-  transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  box-shadow: 0 0 15px #CCC;
-  border: 1px solid #d3d3d3;
-  margin: 10px 0 30px;
-  padding: 20px;
-  position: relative;
+    width: 100%;
+    background: #fff;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    box-shadow: 0 0 15px #CCC;
+    border: 1px solid #d3d3d3;
+    margin: 10px 0 30px;
+    padding: 20px;
+    position: relative;
 }
 
 #about-me-container .yy-info-container:after {
-  content: "";
-  background: #fff;
-  width: 99%;
-  height: 99%;
-  margin: 0 auto;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 4px;
-  transform: rotate(1deg);
-  -webkit-transform: rotate(1deg);
-  box-shadow: 0 0 20px #CCC;
-  border: 1px solid #ddd;
+    content: "";
+    background: #fff;
+    width: 99%;
+    height: 99%;
+    margin: 0 auto;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 4px;
+    transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    box-shadow: 0 0 20px #CCC;
+    border: 1px solid #ddd;
 }
 
 #about-me-container .yy-info-container-title {
-  margin-left: 20px;
+    margin-left: 20px;
 }
-
 #about-me-container .yy-info-sub-title {
-  text-align: left;
+    text-align: left;
 }
-
 @media only screen and (min-width: 768px) {
-  #about-me-container .yy-info-sub-title {
-    text-align: right;
-  }
+    #about-me-container .yy-info-sub-title {
+        text-align: right;
+    }
 }
 
 #about-me-container .admin-login-btn {
-  margin-left: 20px;
-  cursor: pointer;
+    margin-left: 20px;
+    cursor: pointer;
 }
