@@ -14,6 +14,8 @@
     background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
     background-size: cover;
     position: relative;
+    /*-moz-box-shadow: 0 0 15px #DDD;*/
+    /*-webkit-box-shadow: 0 0 15px #CCC;*/
     box-shadow: 0 0 15px #CCC;
     margin-left: auto;
     margin-right: auto;
@@ -96,10 +98,10 @@
 #about-me-container .yy-info-container {
     width: 100%;
     background: #fff;
-    transform: rotate(-1deg);
-    -moz-transform: rotate(-1deg);
-    -webkit-transform: rotate(-1deg);
-    -o-transform: rotate(-1deg);
+    /*transform: rotate(-1deg);*/
+    /*-moz-transform: rotate(-1deg);*/
+    /*-webkit-transform: rotate(-1deg);*/
+    /*-o-transform: rotate(-1deg);*/
     box-shadow: 0 0 15px #CCC;
     border: 1px solid #d3d3d3;
     margin: 10px 0 30px;
@@ -109,10 +111,10 @@
 #about-me-container .yy-info-container.previous-info {
     width: 100%;
     background: #fff;
-    transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
+    /*transform: rotate(0deg);*/
+    /*-moz-transform: rotate(0deg);*/
+    /*-webkit-transform: rotate(0deg);*/
+    /*-o-transform: rotate(0deg);*/
     box-shadow: 0 0 15px #CCC;
     border: 1px solid #d3d3d3;
     margin: 10px 0 30px;
