@@ -604,22 +604,14 @@ hr.title-separator-bold{
     color:#000;
     cursor: pointer;
 }
-/*
+
 .animate-if.ng-enter {
-    -webkit-transition: 0.5s linear all;
-    -moz-transition: 0.5s linear all;
-    -ms-transition: 0.5s linear all;
-    -o-transition: 0.5s linear all;
     transition: 0.5s linear all;
 }
 
 .animate-if.ng-leave {
-    -webkit-transition: 0s linear all;
-    -moz-transition: 0s linear all;
-    -ms-transition: 0s linear all;
-    -o-transition: 0s linear all;
     transition: 0s linear all;
-}*/
+}
 
 .animate-if.ng-enter {
     max-width: 0;
@@ -708,7 +700,7 @@ hr.title-separator-bold{
     color:#000;
     cursor: pointer;
 }
-/*
+
 .animate-if.ng-enter {
     -webkit-transition: 0.5s linear all;
     -moz-transition: 0.5s linear all;
@@ -723,7 +715,7 @@ hr.title-separator-bold{
     -ms-transition: 0s linear all;
     -o-transition: 0s linear all;
     transition: 0s linear all;
-}*/
+}
 
 .animate-if.ng-enter {
     max-width: 0;
@@ -760,8 +752,6 @@ hr.title-separator-bold{
     background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
     background-size: cover;
     position: relative;
-    /*-moz-box-shadow: 0 0 15px #DDD;*/
-    /*-webkit-box-shadow: 0 0 15px #CCC;*/
     box-shadow: 0 0 15px #CCC;
     margin-left: auto;
     margin-right: auto;
@@ -844,10 +834,10 @@ hr.title-separator-bold{
 #about-me-container .yy-info-container {
     width: 100%;
     background: #fff;
-    /*transform: rotate(-1deg);*/
-    /*-moz-transform: rotate(-1deg);*/
-    /*-webkit-transform: rotate(-1deg);*/
-    /*-o-transform: rotate(-1deg);*/
+    transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
     box-shadow: 0 0 15px #CCC;
     border: 1px solid #d3d3d3;
     margin: 10px 0 30px;
@@ -857,10 +847,10 @@ hr.title-separator-bold{
 #about-me-container .yy-info-container.previous-info {
     width: 100%;
     background: #fff;
-    /*transform: rotate(0deg);*/
-    /*-moz-transform: rotate(0deg);*/
-    /*-webkit-transform: rotate(0deg);*/
-    /*-o-transform: rotate(0deg);*/
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     box-shadow: 0 0 15px #CCC;
     border: 1px solid #d3d3d3;
     margin: 10px 0 30px;
@@ -918,8 +908,8 @@ hr.title-separator-bold{
     background: url('../images/background/bg_santa-monica_1.jpg') no-repeat;
     background-size: cover;
     position: relative;
-    /*-moz-box-shadow: 0 0 15px #DDD;*/
-    /*-webkit-box-shadow: 0 0 15px #CCC;*/
+    -moz-box-shadow: 0 0 15px #DDD;
+    -webkit-box-shadow: 0 0 15px #CCC;
     box-shadow: 0 0 15px #CCC;
     margin-left: auto;
     margin-right: auto;
@@ -1002,10 +992,10 @@ hr.title-separator-bold{
 #about-me-container .yy-info-container {
     width: 100%;
     background: #fff;
-    /*transform: rotate(-1deg);*/
-    /*-moz-transform: rotate(-1deg);*/
-    /*-webkit-transform: rotate(-1deg);*/
-    /*-o-transform: rotate(-1deg);*/
+    transform: rotate(-1deg);
+    -moz-transform: rotate(-1deg);
+    -webkit-transform: rotate(-1deg);
+    -o-transform: rotate(-1deg);
     -moz-box-shadow: 0 0 15px #DDD;
     -webkit-box-shadow: 0 0 15px #CCC;
     box-shadow: 0 0 15px #CCC;
@@ -1017,10 +1007,10 @@ hr.title-separator-bold{
 #about-me-container .yy-info-container.previous-info {
     width: 100%;
     background: #fff;
-    /*transform: rotate(0deg);*/
-    /*-moz-transform: rotate(0deg);*/
-    /*-webkit-transform: rotate(0deg);*/
-    /*-o-transform: rotate(0deg);*/
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     -moz-box-shadow: 0 0 15px #DDD;
     -webkit-box-shadow: 0 0 15px #CCC;
     box-shadow: 0 0 15px #CCC;

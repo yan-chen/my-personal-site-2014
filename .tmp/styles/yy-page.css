@@ -172,6 +172,22 @@ hr.title-separator-bold{
     margin: auto;
 }
 
+/* Creating Intrinsic Ratios for Video */
+/* http://alistapart.com/article/creating-intrinsic-ratios-for-video */
+.yy-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.yy-video-wrapper object,
+.yy-video-wrapper embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 .yy-page-alert {
     margin-top: -20px;

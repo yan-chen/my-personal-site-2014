@@ -66,7 +66,7 @@
     color:#000;
     cursor: pointer;
 }
-/*
+
 .animate-if.ng-enter {
     -webkit-transition: 0.5s linear all;
     -moz-transition: 0.5s linear all;
@@ -81,7 +81,7 @@
     -ms-transition: 0s linear all;
     -o-transition: 0s linear all;
     transition: 0s linear all;
-}*/
+}
 
 .animate-if.ng-enter {
     max-width: 0;

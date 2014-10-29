@@ -8,7 +8,7 @@
  * Controller of the myPageApp
  */
 angular.module('myPageApp')
-    .controller('PortfolioCalendarWidgetCtrl', function ($scope) {
+    .controller('PortfolioCalendarWidgetCtrl', ['$scope', function ($scope) {
 
         $scope.widgetColorTheme = '000000';
         $scope.ppTestData = {
@@ -41,4 +41,4 @@ angular.module('myPageApp')
             return 'rgba(' + parseInt(hexVal.substr(0, 2), 16) + ',' + parseInt(hexVal.substr(2, 2), 16) + ',' + parseInt(hexVal.substr(4, 2), 16) + ',' + opacity + ')';
         };
 
-    });
+    }]);

@@ -1,6 +1,6 @@
 [
     {
-        "name": "barChart",
+        "name": "barChart2",
         "data": [
             {
                 "name": "Yan",
@@ -8,15 +8,15 @@
             },
             {
                 "name": "Yan",
-                "score": 96
+                "score": 20
             },
             {
                 "name": "Yan",
-                "score": 75
+                "score": 1000
             },
             {
                 "name": "Yan",
-                "score": 48
+                "score": 30
             }
         ]
     }

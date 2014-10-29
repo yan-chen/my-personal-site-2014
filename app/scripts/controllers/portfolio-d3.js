@@ -14,26 +14,26 @@ angular.module('myPageApp')
         ];
         $scope.currentDataSource = $scope.dataSource[0];
 
-        $scope.fetchData = function (url) {
-            var tempData = $http.get(url, {cache: $templateCache})
+        $scope.fetchData = function () {
+            $http.get($scope.currentDataSource.url, {cache: $templateCache})
                 .success(function (data) {
-                    return data;
+                    $scope.d3BarChartDataSet = data[0];
+                    $scope.d3ColumnChartDataSet = data[1];
                 })
                 .error(function (data) {
                     return data || "Request failed";
                 });
-            return tempData
         };
 
-        $scope.$watch('currentDataSource', function (newVal) {
-            if (newVal) {
-                $scope.fetchData($scope.currentDataSource.url);
-            }
+        $scope.fetchData();
+
+        $scope.$watch('currentDataSource', function (newData) {
+            $scope.fetchData();
         });
 
-        $scope.fetchData($scope.currentDataSource.url).then(function (response) {
-            $scope.d3BarChartDataSet = response.data[0];
-        });
-
-
+        $scope.returnSelectedItem = function (item) {
+            $scope.$apply(function () {
+                $scope.currentSelectedItem = item;
+            });
+        };
     }]);

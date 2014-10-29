@@ -25,7 +25,7 @@ angular.module('myPageApp')
         $scope.projects = [
             {
                 'fileName': 'Widget Bank Design',
-                'filePath': 'http://www.youtube.com/embed/IAKFhjwcE_Q?rel=0',
+                'filePath': 'http://www.youtube.com/v/IAKFhjwcE_Q?rel=0',
                 'fileThumbPath': 'data/usana_widgetbank_thumb.png'
             }
         ];
