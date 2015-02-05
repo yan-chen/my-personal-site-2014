@@ -1,17 +1,25 @@
 .widget-wrapper {
     width: 300px;
     height: 241px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
-.widget-wrapper.panel{
-    height:300px;
-    margin-bottom:60px;
+.widget-wrapper.panel {
+    height: 300px;
+    margin-bottom: 20px;
 }
+
 .ao-widget,
 .pp-widget {
     height: 100%;
 }
+
+.widget-color-theme-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
 /*AO Widgets */
 
 .ao-widget .ao-date {
@@ -27,6 +35,7 @@
     color: #666;
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
 }
+
 .ao-widget .ao-date:after {
     content: " ";
     border-right: 20px solid transparent;
@@ -36,18 +45,22 @@
     left: 20%;
     border-top: 20px solid #fff;
 }
+
 .ao-widget .ao-date .glyphicon-calendar {
     font-size: 60px;
     margin-top: 30px;
 }
+
 .ao-widget .ao-date .col-xs-9 {
     text-align: left;
     padding-left: 30px;
 }
+
 .ao-widget .ao-date .ao-text-date {
     display: block;
     font-size: 20px;
 }
+
 .ao-widget .ao-greeting {
     height: 40%;
     padding: 35px 0;
@@ -57,17 +70,17 @@
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
 .ao-widget .ao-greeting-msg {
     font-size: 30px;
     margin-left: 5px;
 }
 
-
-
 /* PP widget*/
-.pp-widget{
-    backgound-color:#ffffff;
+.pp-widget {
+    backgound-color: #ffffff;
 }
+
 .pp-widget .pp-widget-date {
     height: 241px;
     padding: 30px 10px;
@@ -75,9 +88,11 @@
     color: #fff;
     position: relative;
 }
+
 .pp-widget .pp-days-bg-blocks {
     height: 70px;
 }
+
 .pp-widget .pp-days-bg-blocks:after {
     content: attr(data-num);
     position: absolute;
@@ -88,22 +103,26 @@
     font-weight: bold;
     color: #666;
 }
+
 .pp-widget .pp-days-bg-blocks .background-lb,
 .pp-widget .pp-days-bg-blocks .background-rb {
     position: absolute;
     top: 35px;
-    height:65px;
+    height: 65px;
     width: 40px;
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 1px 3px 5px #0f0f0f;
 }
+
 .pp-widget .pp-days-bg-blocks .background-lb {
     left: 8px;
 }
+
 .pp-widget .pp-days-bg-blocks .background-rb {
     right: 8px;
 }
+
 .pp-widget .pp-days-bg-blocks .background-lb:after, .pp-widget .pp-days-bg-blocks .background-rb:after {
     content: "";
     display: block;
@@ -115,6 +134,7 @@
     box-shadow: 1px 1px 3px #0f0f0f;
     border-radius: 2px;
 }
+
 .pp-days-bg-hr {
     border-top: solid 1px RGBA(0, 0, 0, 0.6);
     border-bottom: solid 2px RGBA(87, 87, 87, 0.6);
@@ -125,11 +145,13 @@
     z-index: 9999;
     width: 100%;
 }
+
 .pp-widget .pp-widget-right {
     padding: 0;
     height: 241px;
     text-align: center;
 }
+
 .pp-widget .pp-widget-associate {
     height: 35%;
     font-size: 20px;
@@ -137,6 +159,7 @@
     font-weight: bold;
     padding: 25px 10px 0 10px;
 }
+
 .pp-widget .pp-widget-associate .pp-widget-associate-svg:after {
     position: absolute;
     height: 40px;
@@ -154,12 +177,13 @@
     position: absolute;
     padding-top: 18%;
     top: 120px;
-    bottom:0;
-    width:100%;
+    bottom: 0;
+    width: 100%;
     font-size: 25px;
     font-weight: bold;
     color: #666;
 }
+
 .pp-widget .pp-widget-cvp .pp-widget-cvp-number {
     margin-left: 5px;
     font-size: 45px;

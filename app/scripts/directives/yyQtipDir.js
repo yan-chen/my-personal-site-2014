@@ -50,7 +50,7 @@
  *******************************************************/
 
 angular.module('myPageApp')
-    .directive('yyQtip', function ($compile, $templateCache, $http, $timeout, $window) {
+    .directive('yyQtip',  ['$compile', '$templateCache', '$http', '$timeout', '$window', function ($compile, $templateCache, $http, $timeout, $window) {
         return function (scope, element, attrs) {
 
             scope.qtipSkin = (attrs.skin ? 'qtip-' + attrs.skin : 'qtip-light');
@@ -212,4 +212,4 @@ angular.module('myPageApp')
                 element.qtip('destroy', true); // Immediately destroy all tooltips belonging to the selected elements
             });
         };
-    });
+    }]);

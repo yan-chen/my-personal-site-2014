@@ -14,3 +14,18 @@
     stroke: steelblue;
     stroke-width: 1.5px;
 }
+
+#portfolio-d3-panel .btn:focus{
+    outline:none;
+}
+#portfolio-d3-panel .portfolio-d3-option-btn{
+    margin: 0 5px 0 0;
+}
+#portfolio-d3-panel .btn.portfolio-d3-option-btn:active{
+    box-shadow: none;
+}
+
+#portfolio-d3-panel .portfolio-d3-panel{
+    margin:15px 0;
+    padding:0;
+}

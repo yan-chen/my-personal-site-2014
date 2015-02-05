@@ -27,20 +27,6 @@ angular.module('myPageApp')
                         .append('svg')
                         .style('width', '100%');
 
-                    $window.onresize = function () {
-                        scope.$apply();
-                    };
-
-                    scope.$watch(function () {
-                        return angular.element($window)[0].innerWidth;
-                    }, function () {
-                        scope.render(scope.data);
-                    });
-
-                    //re-render chart if data source is changed
-                    scope.$watch('data', function (newData) {
-                        scope.render(newData);
-                    }, true);
 
                     scope.render = function (data) {
                         svgChart.selectAll('*').remove();
@@ -89,7 +75,7 @@ angular.module('myPageApp')
                                 .append('text')
                                 .attr('class', 'y label')
                                 .attr('fill', '#000')
-                                .attr("dy", ".25em") // vertical-align: middle
+                                .attr('dy', '.25em') // vertical-align: middle
                                 .attr('text-anchor', 'end')
                                 .attr('y', function (d, i) {
                                     return i * (barHeight + barPadding) + 10;
@@ -97,25 +83,44 @@ angular.module('myPageApp')
                                 .attr('x', 50)
                                 .text(function (d) {
                                     return d.name;
-                                })
+                                });
 
-                                /*.data(data)
-                                .enter()
-                                .append('text')
-                                .attr('class', "axis")
-                                .attr('fill', '#000')
-                                .attr("dx", ".25em") // vertical-align: middle
-                                .attr('y', height)
-                                .attr('x', 0)
-                                .text(function (d) {
-                                    return '100';
-                                })
-                                .append("g")
-                                .attr("transform", "translate(0,30)")
-                                .call(axis);;*/
-
+                            /*.data(data)
+                             .enter()
+                             .append('text')
+                             .attr('class', 'axis')
+                             .attr('fill', '#000')
+                             .attr('dx', '.25em') // vertical-align: middle
+                             .attr('y', height)
+                             .attr('x', 0)
+                             .text(function (d) {
+                             return '100';
+                             })
+                             .append('g')
+                             .attr('transform', 'translate(0,30)')
+                             .call(axis);;*/
                         }, 200);
                     };
+
+
+
+
+                    $window.onresize = function () {
+                        scope.$apply();
+                    };
+
+                    scope.$watch(function () {
+                        return angular.element($window)[0].innerWidth;
+                    }, function () {
+                        scope.render(scope.data);
+                    });
+
+                    //re-render chart if data source is changed
+                    scope.$watch('data', function (newData) {
+                        scope.render(newData);
+                    }, true);
+
+
                     scope.render(scope.data);
                 });
             }};

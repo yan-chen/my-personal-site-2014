@@ -159,8 +159,8 @@ hr.title-separator-bold{
     right: 130px;
 }
 
-.portfolio-container, .personal-container {
-    width: 80%;
+#portfolio-container, #personal-container {
+    width: 90%;
     margin: auto;
 }
 
@@ -186,21 +186,21 @@ hr.title-separator-bold{
 
 /* Creating Intrinsic Ratios for Video */
 /* http://alistapart.com/article/creating-intrinsic-ratios-for-video */
-.yy-video-wrapper {
+.yy-responsive-wrapper {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 25px;
-    height: 0;
+    /*height: 0;*/
 }
-.yy-video-wrapper object,
-.yy-video-wrapper embed {
+.yy-responsive-wrapper object,
+.yy-responsive-wrapper embed,
+.yy-responsive-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
-
 .yy-page-alert {
     margin-top: -20px;
 }

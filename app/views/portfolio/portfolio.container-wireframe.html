@@ -1,0 +1,21 @@
+<div class="portfolio-aside-content-container">
+    <h4>{{currentFile.fileName}}</h4>
+    <hr/>
+    <div class="portfolio-aside-preview-container">
+        <!--<div class="yy-responsive-wrapper" ng-if="currentFile.fileType==='pdf'">
+            <iframe ng-src="{{currentFile.filePath}}" scrolling="auto"></iframe>
+        </div>-->
+         <div class="yy-responsive-wrapper" ng-if="currentFile.fileType==='pdf'">
+            <object data="{{currentFile.filePath}}#zoom=100" type="application/pdf"
+                    width="100%" height="65%">
+
+                <p>PDF plugin is not supported by your browser, here is a link to the pdf
+                    file:
+                    <a href="{{currentFile.filePath}}">to the PDF!</a>
+                </p>
+            </object>
+        </div>
+        <div ng-if="currentFile.fileType==='video'" yy-video-dir
+             data-video-src="currentFile.filePath"></div>
+    </div>
+</div>

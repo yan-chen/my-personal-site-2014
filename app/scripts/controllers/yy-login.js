@@ -5,7 +5,7 @@ angular.module('myPageApp')
 //var loginModalCtrl = function ($scope, $modalInstance, items, $rootScope, AUTH_EVENTS, AuthService) {
 
 
-        var loginModalCtrl = function ($scope, $modalInstance, $rootScope, localStorageService) {
+        var loginModalCtrl = ['$scope', '$modalInstance', '$rootScope', 'localStorageService', function ($scope, $modalInstance, $rootScope, localStorageService) {
 
             $scope.credentials = {
                 adminId: '',
@@ -53,7 +53,7 @@ angular.module('myPageApp')
             $scope.cancel = function () {
                 $modalInstance.dismiss('cancel');
             };
-        };
+        }];
 
 
 

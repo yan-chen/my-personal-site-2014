@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myPageApp')
-  .service('authService', function ($http, Session) {
+  .service('authService', ['$http','Session',function ($http, Session) {
         var authService = {};
 
         authService.login = function (credentials) {
@@ -26,4 +26,4 @@ angular.module('myPageApp')
         };
 
         return authService;
-    });
+    }]);

@@ -1,0 +1,185 @@
+<div ng-controller="AboutMeCtrl" class="container" id="about-me-container">
+
+    <div class="jumbotron">
+        <!--<p class="lead">
+              <img class="profile-img"
+                    src="https://lh5.googleusercontent.com/-HhrMga8upNc/UtBif40Vx3I/AAAAAAAAAEU/T1iKwB2u9R4/w280-h280-p/11a92945-d069-4ff9-b4a7-413d4001414c"
+                    alt="yan"><br>
+        </p>-->
+
+        <div class="lead-with-text">
+            <div class="text-center lead-profile-thumb"><img src="images/yan_1.jpg" alt="" class="img-circle"/></div>
+            <h3>Yan Chen</h3>
+            <h6><i>Salt Lake City, UT</i></h6>
+            <h5>UI Developer / UX Designer</h5>
+            <h5>Front End Web Developer</h5>
+        </div>
+        <div class="btn-group sm-icon-container sm-media-btn-group">
+            <button type="button" class="btn btn-transparent btn-sm-icon">
+                <a href="http://www.linkedin.com/in/yanjchen/">
+                    <img class="sm-icon" src="images/icons/linkedin.png" alt="linkedin"/>
+                </a>
+            </button>
+            <button type="button" class="btn btn-transparent btn-sm-icon">
+                <a href="https://www.facebook.com/yan.chen.376695">
+                    <img class="sm-icon" src="images/icons/facebook.png" alt="facebook"/>
+                </a>
+            </button>
+            <!--
+            <button type="button" class="btn btn-default btn-sm-icon">
+                <a href="https://twitter.com/ychen9">
+                    <img class="sm-icon" src="http://www.ee.ucr.edu/~mhasan/images/tw.png" alt="twitter"/>
+                </a>
+            </button>
+            <button type="button" class="btn btn-default btn-sm-icon">
+                <a href="https://plus.google.com/u/0/101982870604494823397/posts/p/pub">
+                    <img class="sm-icon"
+                         src="http://jonbennallick.co.uk/wp-content/uploads/2012/11/GooglePlus-Logo-02.png"
+                         alt="googleplus"/>
+                </a>
+            </button>
+             -->
+        </div>
+
+    </div>
+
+    <div class="yy-info-container" ng-if="locale==='en'">
+        <div class="yy-info-container-title">
+            <h4>My profession ...</h4>
+        </div>
+        <hr class="title-separator-bold"/>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title"><p><strong>Web/UI Development:</strong></p></div>
+            <div class="clo-md-9 col-sm-9">
+                <p>HTML, CSS, JavaScript, AngularJS, JSON, Bootstrap, Responsive Web Design, Prototype</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title"><p><strong>Database:</strong></p></div>
+            <div class="clo-md-9 col-sm-9"><p>SQL, MySQL, VBA, Microsoft Access</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title"><p><strong>Others:</strong></p></div>
+            <div class="clo-md-9 col-sm-9">
+                <p>Git, JetBrains WebStorm, Microsoft Office Suite, PhotoShop, Illustrator, Java, C++</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="yy-info-container" ng-if="locale==='ch'">
+        <div class="yy-info-container-title">
+            <h4>我的职业 ...</h4>
+        </div>
+        <hr class="title-separator-bold"/>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title"><p><strong>网页/用户界面 开发:</strong></p></div>
+            <div class="clo-md-9 col-sm-9">
+                <p>HTML, CSS, JavaScript, AngularJS, JSON, Bootstrap, Responsive Web Design, Prototype</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title"><p><strong>数据库管理:</strong></p></div>
+            <div class="clo-md-9 col-sm-9"><p>SQL, MySQL, VBA, Microsoft Access</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-3 yy-info-sub-title">
+                <p><strong>其它:</strong></p>
+            </div>
+            <div class="clo-md-9 col-sm-9">
+                <p>Git, JetBrains WebStorm, Microsoft Office Suite, PhotoShop, Illustrator, Java, C++</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="yy-info-container">
+        <div class="yy-info-container-title">
+            <h4 ng-if="locale==='en'">My current work ...</h4>
+            <h4 ng-if="locale==='ch'">我现在的工作 ...</h4>
+        </div>
+        <hr class="title-separator-bold"/>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-2">
+                <img class="work-logo-thumb" ng-if="locale==='en'"
+                     src="https://lh6.googleusercontent.com/-Ir2BZXfhr-0/AAAAAAAAAAI/AAAAAAAAAO0/J_aRmm9Ggi4/photo.jpg"
+                     alt="usana" data-yy-qtip
+                     data-qtip-content="<a href='{{::workHistoryEN[0].companyUrl}}' target='_blank'>{{::workHistoryEN[0].company}}</a>"
+                     data-qtip-class="work-info-qtip qtip-tipsy"/>
+                <img class="work-logo-thumb" ng-if="locale==='ch'"
+                     src="https://lh6.googleusercontent.com/-Ir2BZXfhr-0/AAAAAAAAAAI/AAAAAAAAAO0/J_aRmm9Ggi4/photo.jpg"
+                     alt="usana" data-yy-qtip
+                     data-qtip-content="<a href='{{::workHistoryCH[0].companyUrl}}' target='_blank'>{{::workHistoryCH[0].company}}</a>"
+                     data-qtip-class="work-info-qtip qtip-tipsy"/>
+            </div>
+            <div class="col-md-10 col-sm-10" ng-if="locale==='en'">
+                <h5>{{::workHistoryEN[0].title}} ( {{::workHistoryEN[0].startYear}} - {{::workHistoryEN[0].endYear}}
+                    )</h5>
+
+                <p>{{::workHistoryEN[0].description}}</p>
+            </div>
+            <div class="col-md-10 col-sm-10" ng-if="locale==='ch'">
+                <h5>{{::workHistoryCH[0].title}} ( {{::workHistoryEN[0].startYear}} - {{::workHistoryEN[0].endYear}}
+                    )</h5>
+
+                <p>{{::workHistoryCH[0].description}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="yy-info-container previous-info">
+        <div class="yy-info-container-title">
+            <h4 ng-if="locale==='en'">My previous experience ...</h4>
+            <h4 ng-if="locale==='ch'">我之前的工作经验 ...</h4>
+        </div>
+        <hr class="title-separator-bold"/>
+
+        <div ng-if="locale==='en'" ng-repeat="work in workHistoryEN | slice:1">
+            <div class="row">
+                <div class="col-md-2 col-sm-2">
+                    <img class="work-logo-thumb" ng-src="{{::work.companyLogo}}" alt="{{::work.company}}" data-yy-qtip
+                         data-qtip-content="<a href='{{::work.companyUrl}}' target='_blank'>{{::work.company}}</a>"
+                         data-qtip-class="work-info-qtip qtip-tipsy"/>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <h5>{{::work.title}} ( {{::work.startYear}} - {{::work.endYear}} )</h5>
+
+                    <div ng-bind-html="work.description"></div>
+                </div>
+            </div>
+            <hr/>
+
+        </div>
+
+        <div ng-if="locale==='ch'" ng-repeat="work in workHistoryCH | slice:1">
+            <div class="row">
+                <div class="col-md-2 col-sm-2">
+                    <img class="work-logo-thumb" ng-src="{{::work.companyLogo}}" alt="{{::work.company}}" data-yy-qtip
+                         data-qtip-content="<a href='{{::work.companyUrl}}' target='_blank'>{{::work.company}}</a>"
+                         data-qtip-class="work-info-qtip qtip-tipsy"/>
+                </div>
+                <div class="col-md-10 col-sm-10">
+                    <h5>{{::work.title}} ( {{::work.startYear}} - {{::work.endYear}} )</h5>
+
+                    <div ng-bind-html="work.description"></div>
+                </div>
+            </div>
+            <hr/>
+
+        </div>
+    </div>
+
+    <hr/>
+    <span class="glyphicon glyphicon-heart"></span> Welcome to yyPage
+
+    <span class="power-by-icon-set pull-right hidden-xs">Power by:
+        <span><img src="images/icons/html5.png" alt="" height="20px"/></span>
+        <span><img src="images/icons/css3.gif" alt="" height="25px"/></span>
+        <span><img src="images/icons/angular.png" alt="" height="20px"/></span>
+        <span><img src="images/icons/grunt.png" alt="" height="28px"/></span>
+        <span  ng-controller="loginCtrl" class="btn btn-default admin-login-btn hidden-xs" ng-click="openLoginModal()">Admin</span>
+    </span>
+
+</div>
