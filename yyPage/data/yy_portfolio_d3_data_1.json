@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Bar Chart #1",
+        "data": [
+            {
+                "name": "Greg",
+                "score": 98
+            },
+            {
+                "name": "Michelle",
+                "score": 96
+            },
+            {
+                "name": "Adam",
+                "score": 75
+            },
+            {
+                "name": "Nicholas",
+                "score": 48
+            }
+        ]
+    },
+    {
+        "name": "Column Chart #1",
+        "data": [
+            {
+                "x": 20,
+                "y": 98
+            },
+            {
+                "x": 65,
+                "y": 50
+            },
+            {
+                "x": 58,
+                "y": 95
+            },
+            {
+                "x": 45,
+                "y": 48
+            }
+        ]
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Bar Chart #2",
+        "data": [
+            {
+                "name": "Ally",
+                "score": 100
+            },
+            {
+                "name": "George",
+                "score": 28
+            },
+            {
+                "name": "Malina",
+                "score": 90
+            },
+            {
+                "name": "Gregory",
+                "score": 60
+            }
+        ]
+    },
+    {
+        "name": "Column Chart #2",
+        "data": [
+            {
+                "name": "Ally",
+                "score": 100
+            },
+            {
+                "name": "George",
+                "score": 28
+            },
+            {
+                "name": "Malina",
+                "score": 90
+            },
+            {
+                "name": "Gregory",
+                "score": 60
+            }
+        ]
+    }
+]
