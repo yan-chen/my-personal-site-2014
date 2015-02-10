@@ -9,12 +9,12 @@
         </button>
     </h4>
     <hr class="title-separator-bold"/>
+    <button ng-click="loadImage()"></button>
     <div data-yy-masonry-dir>
-        <h3 ng-if="true">Coming ... </h3>
-        <div ng-if="false" class="masonry-item col-xs-12 col-sm-6 col-md-4 col-lg-4" data-ng-repeat="image in imageList"
+        <div class="masonry-item col-xs-12 col-sm-6 col-md-4 col-lg-4" data-ng-repeat="image in imageList"
              style="margin-bottom:10px;" ng-animate="{enter: 'animate-enter'}" data-toggle="modal"
              data-target="#imageModal" ng-click="setCurrentImage(image)">
-            <img ng-src="{{image.src}}" alt="{{image.title}}" class="masonry-image"/>
+            <img ng-src="{{image.image_1}}" alt="" class="masonry-image"/>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <img ng-src="{{currentImage.src}}" alt="{{currentImage.title}}" class="modal-image"/>
+                    <img ng-src="{{currentImage.image_1}}" alt="" class="modal-image"/>
 
                 </div>
             </div>
@@ -37,3 +37,5 @@
     </div>
 
 </div>
+
+

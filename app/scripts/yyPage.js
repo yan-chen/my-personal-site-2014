@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myPageApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate', 'd3','importio'])
+angular.module('myPageApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate', 'd3'])
 
     .config(['$stateProvider', '$urlRouterProvider', '$sceDelegateProvider', function ($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 
@@ -10,7 +10,6 @@ angular.module('myPageApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ui.router
             // Allow loading from our assets domain.  Notice the difference between * and **.
             'http://www.youtube.com/**'
         ]);
-
 
         $urlRouterProvider.when('', 'about-me');
         $urlRouterProvider.when('/portfolio', '/portfolio/modal-view');
@@ -47,13 +46,4 @@ angular.module('myPageApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ui.router
         });
 
         $rootScope.isTouchDevice = !!('ontouchstart' in window);
-
-        importio.init({
-            'auth': {
-                'userGuid': '5abf7ccf-6587-4290-95b9-c8145c6464f6',
-                'apiKey': 'nJfLaOMWny+snD+8CnozqN6JLPHmRmrd9Qbd64f4y2/2haUG+2HRmxK/Pt1SY5ftfMirY+L/22rvx3Rret6lRw==',
-            },
-            'host': 'import.io'
-        });
-
     }]);
